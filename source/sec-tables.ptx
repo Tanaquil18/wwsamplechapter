@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-tables" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Tables</title>
+
+    <p>Although a <webwork /> problem written in <pretext /> source can't have a <q>table</q> (which would be captioned and cause trouble with free-standing PG output), they can have a <q>tabular</q>. Tabulars can be made using the existing syntax and options that PTX offers for table-making, with some exceptions. As of summer 2017, the exceptions are that individual cells cannot have <c>bottom</c> border attributes and individual columns cannot have <c>top</c> border attributes. Also, while PTX table borders are generally <c>minor</c>, <c>medium</c>, or <c>major</c>, when these borders are used in a <webwork /> problem that is rendered as a hard copy problem from within <webwork />, the only thickness option corresponds to <c>minor</c>. Several more features (like rules in general) do not carry through to static output (print or HTML-preview). However we hope this is only temporary.</p>
+
+    <exercise label="table-completion">
+        <title>Complete this Table</title>
+
+        <webwork>
+            <pg-code>
+                @a = (random(2,9,1),random(2,9,1));
+                @b = (random(2,9,1),random(2,9,1));
+                for my$i(0..3){$p[$i]=$a[int($i/2)]*$b[$i % 2]};
+            </pg-code>
+
+            <statement>
+                <p>Complete this multiplication table.</p>
+
+                <tabular bottom="minor" right="minor" halign="center">
+                    <col halign="right" right="major"/>
+                    <col />
+                    <col />
+                    <row bottom="major">
+                        <cell><m>\times</m></cell>
+                        <cell><m><var name="$a[0]"/></m></cell>
+                        <cell><m><var name="$a[1]"/></m></cell>
+                    </row>
+                    <row>
+                        <cell><m><var name="$b[0]"/></m></cell>
+                        <cell><var name="$p[0]" form="none" category="integer"/></cell>
+                        <cell><var name="$p[2]" form="none" category="integer"/></cell>
+                    </row>
+                    <row>
+                        <cell><m><var name="$b[1]"/></m></cell>
+                        <cell><var name="$p[1]" form="none" category="integer"/></cell>
+                        <cell><var name="$p[3]" form="none" category="integer"/></cell>
+                    </row>
+                </tabular>
+            </statement>
+
+            <solution>
+                <tabular bottom="minor" right="minor" halign="center">
+                    <col halign="right" right="major"/>
+                    <col />
+                    <col />
+                    <row bottom="major">
+                        <cell><m>\times</m></cell>
+                        <cell><m><var name="$a[0]"/></m></cell>
+                        <cell><m><var name="$a[1]"/></m></cell>
+                    </row>
+                    <row>
+                        <cell><m><var name="$b[0]"/></m></cell>
+                        <cell><m><var name="$p[0]"/></m></cell>
+                        <cell><m><var name="$p[2]"/></m></cell>
+                    </row>
+                    <row>
+                        <cell><m><var name="$b[1]"/></m></cell>
+                        <cell><m><var name="$p[1]"/></m></cell>
+                        <cell><m><var name="$p[3]"/></m></cell>
+                    </row>
+                </tabular>
+
+            </solution>
+        </webwork>
+
+    </exercise>
+
+</section>

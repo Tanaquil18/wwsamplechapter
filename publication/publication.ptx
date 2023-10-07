@@ -117,11 +117,12 @@
     <!-- Control behavior of online WeBWorK, per type: -->
     <webwork
       inline="dynamic"
-      divisional="static"
-      reading="static"
+      divisional="dynamic"
+      reading="dynamic"
       worksheet="static"
       project="dynamic"
     />
+    <feedback href="inserturl.here" />
     <!-- Magic IDs identify HTML pages to analytics services   -->
     <!-- Presence implies relevant Javascript will be added    -->
     <!-- StatCounter requires both values to be set            -->
@@ -130,5 +131,12 @@
   </html>
 
   <!-- To use WeBWorK, you need a server.  -->
-  <!-- <webwork server="https://webwork-ptx.aimath.org"> -->
+  <webwork server="https://webwork-ptx.aimath.org"/>
+  <!-- <webwork server="https://webwork.runestone.academy"/> -->
+  <!-- <webwork server="https://webwork-dev.uleth.ca"
+           course="chrissy-playground" userpassword="anonymous"
+           user="anonymous"
+           task-reveal="all"
+    /> -->
+  
 </publication>

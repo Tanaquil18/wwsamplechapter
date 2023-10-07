@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-layout-configuration-testing" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Layout Configuration Testing</title>
+
+    <introduction>
+        <p>This section is to provide a single page demonstrating all of the combinations that may factor into a problem's layout.</p>
+    </introduction>
+
+    <subsection>
+        <title>Inline Exercises</title>
+        <p>Some <q>inline</q> exercises, as distinguished from the <q>divisional</q> exercises below.</p>
+        <exercise>
+            <webwork>
+                <statement>
+                    <p><m>1+1=2</m></p>
+                </statement>
+            </webwork>
+        </exercise>
+        <exercise>
+            <title>Has a Title</title>
+            <webwork>
+                <statement>
+                    <p><m>1+1=2</m></p>
+                </statement>
+            </webwork>
+        </exercise>
+        <exercise>
+            <introduction>
+                <p>Has an introduction.</p>
+            </introduction>
+            <webwork>
+                <statement>
+                    <p><m>1+1=2</m></p>
+                </statement>
+            </webwork>
+        </exercise>
+        <exercise>
+            <title>Has a Title</title>
+            <introduction>
+                <p>Has an introduction.</p>
+            </introduction>
+            <webwork>
+                <statement>
+                    <p><m>1+1=2</m></p>
+                </statement>
+            </webwork>
+        </exercise>
+        <exercise>
+            <webwork>
+                <statement>
+                    <p><m>1+1=2</m></p>
+                </statement>
+            </webwork>
+            <conclusion>
+                <p>Has a conclusion.</p>
+            </conclusion>
+        </exercise>
+        <exercise>
+            <title>Has a Title</title>
+            <webwork>
+                <statement>
+                    <p><m>1+1=2</m></p>
+                </statement>
+            </webwork>
+            <conclusion>
+                <p>Has a conclusion.</p>
+            </conclusion>
+        </exercise>
+        <exercise>
+            <introduction>
+                <p>Has an introduction.</p>
+            </introduction>
+            <webwork>
+                <statement>
+                    <p><m>1+1=2</m></p>
+                </statement>
+            </webwork>
+            <conclusion>
+                <p>Has a conclusion.</p>
+            </conclusion>
+        </exercise>
+        <exercise>
+            <title>Has a Title</title>
+            <introduction>
+                <p>Has an introduction.</p>
+            </introduction>
+            <webwork>
+                <statement>
+                    <p><m>1+1=2</m></p>
+                </statement>
+            </webwork>
+            <conclusion>
+                <p>Has a conclusion.</p>
+            </conclusion>
+        </exercise>
+    </subsection>
+
+    <exercises>
+        <title>Divisional Exercises</title>
+        <exercise>
+            <webwork>
+                <statement>
+                    <p><m>1+1=2</m></p>
+                </statement>
+            </webwork>
+        </exercise>
+        <exercise>
+            <title>Has a Title</title>
+            <webwork>
+                <statement>
+                    <p><m>1+1=2</m></p>
+                </statement>
+            </webwork>
+        </exercise>
+        <exercise>
+            <introduction>
+                <p>Has an introduction.</p>
+            </introduction>
+            <webwork>
+                <statement>
+                    <p><m>1+1=2</m></p>
+                </statement>
+            </webwork>
+        </exercise>
+        <exercise>
+            <title>Has a Title</title>
+            <introduction>
+                <p>Has an introduction.</p>
+            </introduction>
+            <webwork>
+                <statement>
+                    <p><m>1+1=2</m></p>
+                </statement>
+            </webwork>
+        </exercise>
+        <exercise>
+            <webwork>
+                <statement>
+                    <p><m>1+1=2</m></p>
+                </statement>
+            </webwork>
+            <conclusion>
+                <p>Has a conclusion.</p>
+            </conclusion>
+        </exercise>
+        <exercise>
+            <title>Has a Title</title>
+            <webwork>
+                <statement>
+                    <p><m>1+1=2</m></p>
+                </statement>
+            </webwork>
+            <conclusion>
+                <p>Has a conclusion.</p>
+            </conclusion>
+        </exercise>
+        <exercise>
+            <introduction>
+                <p>Has an introduction.</p>
+            </introduction>
+            <webwork>
+                <statement>
+                    <p><m>1+1=2</m></p>
+                </statement>
+            </webwork>
+            <conclusion>
+                <p>Has a conclusion.</p>
+            </conclusion>
+        </exercise>
+        <exercise>
+            <title>Has a Title</title>
+            <introduction>
+                <p>Has an introduction.</p>
+            </introduction>
+            <webwork>
+                <statement>
+                    <p><m>1+1=2</m></p>
+                </statement>
+            </webwork>
+            <conclusion>
+                <p>Has a conclusion.</p>
+            </conclusion>
+        </exercise>
+        <exercisegroup>
+            <introduction>
+                <p>These are inside an exercisegroup.</p>
+            </introduction>
+            <exercise>
+                <webwork>
+                    <statement>
+                        <p><m>1+1=2</m></p>
+                    </statement>
+                </webwork>
+            </exercise>
+            <exercise>
+                <title>Has a Title</title>
+                <webwork>
+                    <statement>
+                        <p><m>1+1=2</m></p>
+                    </statement>
+                </webwork>
+            </exercise>
+            <exercise>
+                <introduction>
+                    <p>Has an introduction.</p>
+                </introduction>
+                <webwork>
+                    <statement>
+                        <p><m>1+1=2</m></p>
+                    </statement>
+                </webwork>
+            </exercise>
+            <exercise>
+                <title>Has a Title</title>
+                <introduction>
+                    <p>Has an introduction.</p>
+                </introduction>
+                <webwork>
+                    <statement>
+                        <p><m>1+1=2</m></p>
+                    </statement>
+                </webwork>
+            </exercise>
+            <exercise>
+                <webwork>
+                    <statement>
+                        <p><m>1+1=2</m></p>
+                    </statement>
+                </webwork>
+                <conclusion>
+                    <p>Has a conclusion.</p>
+                </conclusion>
+            </exercise>
+            <exercise>
+                <title>Has a Title</title>
+                <webwork>
+                    <statement>
+                        <p><m>1+1=2</m></p>
+                    </statement>
+                </webwork>
+                <conclusion>
+                    <p>Has a conclusion.</p>
+                </conclusion>
+            </exercise>
+            <exercise>
+                <introduction>
+                    <p>Has an introduction.</p>
+                </introduction>
+                <webwork>
+                    <statement>
+                        <p><m>1+1=2</m></p>
+                    </statement>
+                </webwork>
+                <conclusion>
+                    <p>Has a conclusion.</p>
+                </conclusion>
+            </exercise>
+            <exercise>
+                <title>Has a Title</title>
+                <introduction>
+                    <p>Has an introduction.</p>
+                </introduction>
+                <webwork>
+                    <statement>
+                        <p><m>1+1=2</m></p>
+                    </statement>
+                </webwork>
+                <conclusion>
+                    <p>Has a conclusion.</p>
+                </conclusion>
+            </exercise>
+        </exercisegroup>
+    </exercises>
+</section>

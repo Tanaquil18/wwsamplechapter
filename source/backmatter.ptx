@@ -8,6 +8,10 @@
 <backmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="backmatter">
   <title>Backmatter</title>
 
+  <solutions inline="hint answer solution" divisional="hint answer solution">
+    <title>Hints, Answers, and Solutions</title>
+  </solutions>
+
   <!-- <solutions divisional="hint"> <title>Selected Hints</title> </solutions> -->
 
   <!-- <solutions divisional="solution"> <title>Selected Solutions</title> </solutions> -->

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-deprecations" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Deprecations</title>
+
+    <p>
+        This section is for testing if deprecated features are still supported.
+        No such tests are being performed now.
+    </p>
+</section>

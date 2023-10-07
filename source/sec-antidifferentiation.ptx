@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-antidifferentiation" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Antidifferentiation</title>
+
+    <subsection>
+        <title>A Few More Features</title>
+
+        <p>This subsection demonstrates a few more features.</p>
+
+        <definition xml:id="definition-antiderivative">
+            <title>Antiderivative of a Function</title>
+
+            <statement>
+                <p>Suppose that <m>f(x)</m> and <m>F(x)</m> are two functions such that <me>F^\prime(x) = f(x).</me>  Then we say <m>F</m> is an <term>antiderivative</term> of <m>f</m>.</p>
+            </statement>
+        </definition>
+
+        <p>The Fundamental Theorem of Calculus in one of the high points of a course in single-variable course.</p>
+
+        <theorem xml:id="theorem-FTC">
+            <title>The Fundamental Theorem of Calculus</title>
+            <idx>Fundamental Theorem of Calculus</idx>
+            <statement>
+                <p>If <m>f(x)</m> is continuous, and the derivative of <m>F(x)</m> is <m>f(x)</m>, then <me>\definiteintegral{a}{b}{f(x)}{x}=F(b)-F(a)</me></p>
+            </statement>
+            <proof>
+                <p>Left to the reader.</p>
+            </proof>
+        </theorem>
+
+        <p>We state an equivalent version of the FTC, which is less-suited for computation, but which perhaps is a more interesting theoretical statement.</p>
+
+        <corollary xml:id="corollary-FTC-derivative">
+            <statement>
+                <p>Suppose <m>f(x)</m> is a continuous function.  Then <men xml:id="equation-alternate-FTC">\frac{d}{dx}\definiteintegral{a}{x}{f(t)}{t}=f(x)</men></p>
+            </statement>
+            <proof xml:id="proof-FTC-corollary">
+                <p>We simply take the indicated derivative, applying <xref ref="theorem-FTC" /> at <xref ref="equation-use-FTC" />.<mdn>
+                    <mrow xml:id="equation-use-FTC">\frac{d}{dx}\definiteintegral{a}{x}{f(t)}{t}&amp;=\frac{d}{dx}\left(F(x)-F(a)\right)</mrow>
+                    <mrow number="no">&amp;=\frac{d}{dx}F(x)-\frac{d}{dx}F(a)</mrow>
+                    <mrow>&amp;=f(x)-0 = f(x)</mrow>
+                </mdn></p>
+            </proof>
+        </corollary>
+    </subsection>
+
+    <exercises>
+        <title><webwork /> Exercises</title>
+
+        <introduction>
+            <p>The first problem in this list is coming from the <webwork /> Open Problem Library. One implication of this is that we might want to provide some commentary that connects the problem to the text.  The other two ask for essay answers, which would be graded by an instructor, so in the HTML output there is no opportunity to provide an answer.</p>
+        </introduction>
+
+        <exercise label="ww-antiderivatives">
+            <title>Antiderivatives</title>
+
+            <introduction>
+                <p>Consult <xref ref="definition-antiderivative" /> and the <xref ref="theorem-FTC" text="title" /> to assist you with the following problem.</p>
+            </introduction>
+
+            <webwork source="Library/ma122DB/set12/s5_4_26.pg" />
+
+            <conclusion>
+                <p>Unless the OPL has changed this problem out from under us, note the <q>SOLUTION</q> appearing in the solution. That is hard-coded into the OPL version of the problem. This is an example of something undesirable that may happen when using OPL problems that were not originally written with <pretext /> in mind.</p>
+            </conclusion>
+        </exercise>
+
+        <exercise label="ww-discuss-always-antiderivative">
+            <title>Every Continuous Function has an Antiderivative</title>
+
+            <introduction>
+                <p><webwork /> problems can allow for open-ended essay responses that are intended to be assessed later by the instructor. For anonymous access, no text field is provided. But if this problem were used within <webwork /> as part of a homework set, users could submit an answer.</p>
+            </introduction>
+
+            <webwork>
+                <statement>
+                    <p>Explain how we can use <xref ref="corollary-FTC-derivative" /> to say that every continuous function <em>always</em> has a derivative. (And we will demonstrate here that you can use a  macro from <c>docinfo</c>: <m>\definiteintegral{1}{2}{\frac{1}{x}}{x}=\ln(2)</m>. It will work in the <webwork /> problem, regardless of whether you are using images, MathJax, or hardcopy.)</p>
+                    <p><var form="essay" /></p>
+                </statement>
+            </webwork>
+        </exercise>
+
+        <exercise label="ww-discuss-inverse-processes">
+            <title>Inverse Processes</title>
+
+            <webwork>
+                <statement>
+                    <p><q>Differentiation and integration are inverse processes.</q>  Cite <alert>specific results</alert> from this section in an explanation of how they justify this (somewhat imprecise) claim.</p>
+                    <p><var form="essay" width="40"/></p>
+                </statement>
+            </webwork>
+        </exercise>
+
+        <exercisegroup cols="2">
+            <introduction>
+                <p>
+                    For the given function <m>f</m>, find <m>\indefiniteintegral{f(x)}{x}</m>.
+                </p>
+                <p>
+                    Note that these common instructions are phrased in such a way
+                    that they would read well if they were applied to only one exercise at a time.
+                    That will happen if these exercises are exported as <c>.pg</c> files,
+                    for example to be used in online homework from a <webwork/> server.
+                </p>
+            </introduction>
+
+            <exercise>
+                <webwork>
+                    <pg-code>
+                        $answer = FormulaUpToConstant("-cos(x)");
+                    </pg-code>
+                    <statement>
+                        <p>
+                            <m>f(x)=\sin(x)</m>
+                        </p>
+                        <p>
+                            <var name="$answer" width="20"/>
+                        </p>
+                    </statement>
+                </webwork>
+            </exercise>
+
+            <exercise>
+                <webwork>
+                    <pg-code>
+                        $answer = FormulaUpToConstant("e^x");
+                    </pg-code>
+                    <statement>
+                        <p>
+                            <m>f(x)=e^x</m>
+                        </p>
+                        <p>
+                            <var name="$answer" width="20"/>
+                        </p>
+                    </statement>
+                </webwork>
+            </exercise>
+        </exercisegroup>
+
+        <exercise label="ww-use-the-definition-of-the-derivative">
+            <title>Show Your Work</title>
+            <introduction>
+                <p>
+                    Sometimes you would like a student to give a <q>simple</q> answer that <webwork/> can automatically assess,
+                    but you would also like the student to show their work or reasoning.
+                    Perhaps there is a particular method that you want to see the student use to find the answer.
+                    So you have a regular answer blank and also an essay blank.
+                    For practical reasons, you may wish to use the same problem on your <webwork/> server, but omit the essay part.
+                    For example, if you want to use that problem but leave out the manual grading.
+                    For this, <webwork/> has the <c>explanation_box</c> tool, demonstrated here.
+                </p>
+            </introduction>
+
+            <webwork>
+                <pg-code>
+                    $answer = Formula('2x');
+                    $showwork = '[@ explanation_box(message => "Show your work.") @]*';
+                </pg-code>
+                <statement>
+                    <p>
+                        Use the definition of the derivative to find <m>\frac{d}{dx}x^2</m>.
+                    </p>
+                    <p>
+                        <var name="$answer" width="10"/>
+                    </p>
+                    <p>
+                        <var name="$showwork" data="pgml"/>
+                    </p>
+                </statement>
+            </webwork>
+        </exercise>
+
+    </exercises>
+</section>

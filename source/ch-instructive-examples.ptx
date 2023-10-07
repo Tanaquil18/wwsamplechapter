@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-instructive-examples" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Instructive Examples</title>
+
+  <introduction>
+    <p> Text before the first section. </p>
+  </introduction>
+
+  <!-- include sections -->
+  <xi:include href="sec-arithmetic.ptx" />
+  <xi:include href="sec-quadratic-formula.ptx" />
+  <xi:include href="sec-open-problem-library.ptx" />
+  <xi:include href="sec-antidifferentiation.ptx" />
+  <xi:include href="sec-math-content.ptx" />
+  <xi:include href="sec-multiple-choice.ptx" />
+  <xi:include href="sec-tables.ptx" />
+  <xi:include href="sec-graphics-in-exercises.ptx" />
+
+</chapter>

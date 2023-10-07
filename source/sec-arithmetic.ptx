@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-arithmetic" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Arithmetic</title>
+
+  <p>Some questions with quantitative answers.</p>
+
+    <exercise label="integer-addition">
+        <title>Adding Single-Digit Integers</title>
+
+        <introduction>
+            <p>A simple, but functional example to begin with. If you are just learning how to add, you can test yourself here.</p>
+        </introduction>
+
+        <webwork xml:id="webwork-add-numbers">
+            <description>
+                Add two positive single-digit integers.
+            </description>
+
+            <pg-code>
+                $a = random(1, 9, 1);
+                $b = random(1, 9, 1);
+                $c = Compute($a + $b);
+            </pg-code>
+
+            <statement>
+                <p>Compute the sum of <m><var name="$a" /></m> and <m><var name="$b" /></m>:</p>
+                <p><m><var name="$a" /> + <var name="$b" /> =</m> <var name="$c" width="5" category="integer" /></p>
+            </statement>
+
+            <solution>
+                <p><m><var name="$a" /> + <var name="$b" /> = <var name="$c" /></m>.</p>
+            </solution>
+        </webwork>
+
+        <conclusion>
+            <p>That was a simple problem.  Let's move on.</p>
+        </conclusion>
+    </exercise>
+
+    <p>If you are familiar with <webwork />, then it may be a surprise to you to be interacting with a <webwork /> problem this way, without having logged in to <webwork />.</p>
+
+    <exercise label="integer-addition-with-seed">
+        <title>Declaring a Problem Seed</title>
+
+        <introduction>
+            <p>You can also declare a <c>seed</c> to specify a version of any problem that has randomization. Here is the same problem (<q>copied</q> in the <pretext/> source), but with a <c>seed</c> specified.</p>
+        </introduction>
+
+        <webwork copy="webwork-add-numbers" seed="510"/>
+
+    </exercise>
+
+    <exercise label="integer-addition-with-control-seed">
+        <title>Controlling Randomness</title>
+
+        <introduction>
+            <p>You can code your problem with randomization, but then use a specific <c>seed</c> and <webwork />'s <c>$envir{problemSeed}</c> to override that randomization for the purposes of the version that will appear in HTML and print output.</p>
+        </introduction>
+
+        <webwork seed="1">
+            <pg-code>
+                $a = random(1, 9, 1);
+                $b = random(1, 9, 1);
+                if ($envir{problemSeed}==1){$a=1;$b=2};
+                $c = Compute($a + $b);
+            </pg-code>
+
+            <statement>
+                <p>Compute the sum of <m><var name="$a" /></m> and <m><var name="$b" /></m>:</p>
+                <p><m><var name="$a" /> + <var name="$b" /> =</m> <var name="$c" width="5" category="integer" /></p>
+            </statement>
+
+            <solution>
+                <p><m><var name="$a" /> + <var name="$b" /> = <var name="$c" /></m>.</p>
+            </solution>
+        </webwork>
+    </exercise>
+
+
+    <exercise label="special-answer-checking">
+        <title>Special Answer Checking</title>
+
+        <introduction>
+            <p>One of the strengths of <webwork /> is its ability to give intelligent feedback for incorrect answers.<ul>
+                <li><p>There is general feedback for when the student's answer is in an entirely different ballpark from the correct answer. Try entering something like <q><c>y</c></q>.</p></li>
+                <li><p>There is general feedback for when the student's answer is not in the right form. Try entering <q><c>x^2*x^3</c></q>, which, right or wrong, is unsimplified.</p></li>
+                <li><p>And problems can be written to detect and respond to common mistakes. Try entering an answer where you multiply the two exponents (instead of adding them, which would be correct.)</p></li>
+            </ul></p>
+        </introduction>
+
+        <webwork>
+            <pg-code>
+                $a = random(1, 9, 1);
+                $b = random(1, 9, 1);
+                $c = $a + $b;
+                $expression = Formula("x^($a)*x^($b)");
+
+                Context("LimitedPolynomial-Strict");
+                # custom error message
+                Context()->{error}{msg}{"A variable can appear only once in each term of a polynomial"}
+                    = "Your answer must be fully simplified";
+
+                $answer = Formula("x^($c)");
+                $product = $a*$b;
+                $evaluator = $answer->cmp()->withPostFilter(AnswerHints(
+                    [Compute("x^($product)")] =>
+                    "When multiplying terms with the same base, you do not multiply the exponents."));
+            </pg-code>
+
+            <statement>
+                <p>Use the properties of exponents to simplify <m><var name="$expression" /></m>.</p>
+
+                <instruction>To enter a power, use a <c>^</c>, as in <c>x^2</c> for <m>x^2</m>.</instruction>
+
+                <p><m><var name="$expression" />=</m> <var name="$answer" evaluator="$evaluator" width="8" category="formula" /></p>
+
+            </statement>
+
+            <solution>
+                <p>We <em>add</em> the exponents as follows, while including a gratuitous reference to the quadratic formula:<md>
+                    <mrow><var name="$expression" />&amp;=x^{<var name="$a" />+<var name="$b" />}&amp;<xref ref="theorem-quadratic-formula" text="type-global"/></mrow>
+                    <mrow>&amp;=x^{<var name="$c" />}</mrow>
+                </md></p>
+            </solution>
+        </webwork>
+    </exercise>
+
+    <exercise label="using-hints">
+        <title>Using Hints</title>
+        <introduction>
+            <p>Hints can be inserted into exercises. Whether a hint is visible in the HTML depends on the value of <c>$showHint</c> in <c>PGcourse.pl</c> in the <webwork /> course that is hosting these exercises. How the hint is displayed in the pdf output is controlled in the usual way that an PTX hint is controlled.</p>
+        </introduction>
+
+        <webwork>
+            <pg-code>
+                do {
+                    $a = list_random(2,3,5,6);
+                    $b = random(1, 5, 1);
+                   } until (gcd($a,$b) == 1);
+                $c = $a * $b**2;
+                Context()->flags->set(reduceConstantFunctions=>0);
+                $expression = Formula("sqrt($c)");
+
+                Context("LimitedRadical");
+
+                $answer = Formula("$b sqrt($a)");
+            </pg-code>
+
+            <statement>
+                <p>Simplify the expression <m><var name="$expression"/></m>.</p>
+                <p><m><var name="$expression"/>=</m> <var name="$answer" width="10"/></p>
+            </statement>
+
+            <hint>
+                <p>Factor the number inside the radical.</p>
+            </hint>
+
+            <solution>
+                <p><me><var name="$expression"/>=\sqrt{<var name="$b"/>^2\cdot <var name="$a"/>}=<var name="$b"/>\sqrt{<var name="$a"/>}</me></p>
+            </solution>
+        </webwork>
+    </exercise>
+
+    <exercise label="no-random">
+        <title>No Randomization</title>
+        <introduction>
+            <p>This problem has no randomization at all, not even if it were exported to be part of a problem set on a <webwork /> server. As such, it really doesn't need any lines of Perl code in its setup, so you have the option of skipping that part of the authoring process.</p>
+        </introduction>
+        <webwork>
+            <statement>
+                <p><m>1+2=</m> <var name="3" width="5" /></p>
+            </statement>
+        </webwork>
+        <conclusion>
+            <p>For more about problems that do not require any randomization, see the <url href="https://pretextbook.org/documentation.html">PTX Author Guide</url>.</p>
+        </conclusion>
+    </exercise>
+
+    <project label="copy-webwork-add-numbers">
+        <title>Inside a <tag>project</tag></title>
+        <introduction>
+            <p>
+                If you like, you can have a <webwork/> inside a PROJECT-LIKE block.
+                Just like with an <tag>exercise</tag>, it can be preceded with an optional <tag>introduction</tag>
+                and followed by an optional <tag>conclusion</tag>.
+            </p>
+        </introduction>
+        <webwork copy="webwork-add-numbers" seed="511"/>
+    </project>
+
+</section>

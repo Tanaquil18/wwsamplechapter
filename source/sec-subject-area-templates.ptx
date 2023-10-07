@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-subject-area-templates" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Subject Area Templates</title>
+
+    <p>This section samples the subject area template problems found on the <webwork /> wiki at <url href="http://webwork.maa.org/wiki/SubjectAreaTemplates"/>.</p>
+
+    <exercise label="number-or-function">
+        <title>Answer is a number or a function</title>
+
+        <webwork>
+
+            <pg-code>
+                $a = non_zero_random(-9,9,1);
+                do { $b = random(2,9,1); } until ( $b != $a );
+                $answer1 = Compute("$a");
+                $answer2 = Compute("($a x^($b) + $b)/x")->reduce();
+            </pg-code>
+
+            <statement>
+                <p><ol>
+                    <li>
+                        <p>Suppose the correct answer is <m><var name="$answer1"/></m>.</p>
+                        <p><ul marker="square">
+                            <li>
+                                <p><var name="$answer1" width="15" category="integer"/></p>
+                            </li>
+                        </ul></p>
+                    </li>
+                    <li>
+                        <p>Suppose the correct answer is <m>\displaystyle <var name="$answer2"/></m>.</p>
+                        <p><ul marker="square">
+                            <li>
+                                <p><var name="$answer2" width="15" category="formula"/></p>
+                            </li>
+                        </ul></p>
+                    </li>
+                </ol></p>
+
+            </statement>
+
+            <solution>
+                <p>Solution explanation goes here.</p>
+            </solution>
+        </webwork>
+    </exercise>
+
+    <exercise label="function-with-domain-issues">
+        <title>Answer is a function with domain issues</title>
+
+        <webwork>
+
+            <pg-code>
+                $a = random(2,5,1);
+                $answer1 = Compute("sqrt(x-$a)");
+                $answer1->{limits} = [$a+1,$a+4];
+                $answer2 = Compute("ln(abs( x / (x-$a) ))");
+                $answer2->{test_points} = [[-5],[-4],[1],[$a-1],[7],[8]];
+                $answer2evaluator = $answer2 -> cmp() -> withPostFilter( AnswerHints( [Compute("ln(abs((x-$a)/x))"),] => "This is the opposite of correct...",));
+            </pg-code>
+
+            <statement>
+                <p><ol>
+                    <li>
+                        <p>Suppose the correct answer is <m>\displaystyle <var name="$answer1"/></m>.</p>
+                        <p><ul marker="square">
+                            <li>
+                                <p><var name="$answer1" width="15" category="formula"/></p>
+                            </li>
+                        </ul></p>
+                    </li>
+                    <li>
+                        <p>Suppose the correct answer is <m>\displaystyle <var name="$answer2"/></m>.</p>
+                        <p><ul marker="square">
+                            <li>
+                                <p><var name="$answer2" width="15" evaluator="$answer2evaluator" category="formula"/></p>
+                            </li>
+                        </ul></p>
+                    </li>
+                </ol></p>
+
+            </statement>
+
+            <solution>
+                <p>Solution explanation goes here.</p>
+            </solution>
+        </webwork>
+    </exercise>
+
+    <exercise label="multiple-choice-popup-or-radio-buttons">
+        <title>Multiple Choice by Popup, Radio Buttons, or Checkboxes</title>
+
+        <webwork>
+            <pg-code>
+                $color1 = PopUp(["?","Red","Blue","Green"], 2);
+                $color2 = RadioButtons(["Red","Blue","Green","None of these"], 1);
+                $color3 = CheckboxList(["Red","Blue","Green","None of these"], [1]);
+            </pg-code>
+            <statement>
+                <p>My favorite color is <var name="$color1" form="popup"/>.</p>
+
+                <p>My favorite color is</p>
+                <p><var name="$color2" form="buttons"/></p>
+
+                <p>My favorite color is</p>
+                <p><var name="$color3" form="checkboxes"/></p>
+            </statement>
+
+            <solution>
+                <p>The correct answer is <var name="$color1"/>.</p>
+                <p>The correct answer is <var name="$color2"/>.</p>
+                <p>The correct answer is <var name="$color3"/>.</p>
+            </solution>
+
+        </webwork>
+    </exercise>
+
+    <exercise>
+        <webwork>
+            <pg-code>
+                  $expressions = RadioButtons(['\(x\)','\(x^2\)','\(2^x\)'], 2);
+            </pg-code>
+            <statement>
+                <p>
+                    There is math in each option for this question. Which expression is not a polynomial?
+                </p>
+                <p>
+                    <var name="$expressions" form="buttons"/>
+                </p>
+            </statement>
+            <solution>
+                <p>The answer is <var name="$expressions"/>.</p>
+            </solution>
+        </webwork>
+
+    </exercise>
+
+    <exercise label="tables">
+        <title>Tables</title>
+
+        <webwork>
+
+            <pg-code>
+                $x = Real(5);
+            </pg-code>
+
+            <statement>
+                <p>A table with minimal XML source.</p>
+
+                <tabular>
+                    <row>
+                        <cell>A</cell>
+                        <cell>B</cell>
+                        <cell>C</cell>
+                    </row>
+                    <row>
+                        <cell>D</cell>
+                        <cell>E</cell>
+                        <cell>F</cell>
+                    </row>
+                    <row>
+                        <cell>G</cell>
+                        <cell>H</cell>
+                        <cell>I</cell>
+                    </row>
+                </tabular>
+                <p>Finish this table.</p>
+
+                <tabular top="major" left="major" bottom="major" right="minor" halign="center">
+                    <col halign="right" top="minor"/>
+                    <col right="medium"/>
+                    <col halign="left"/>
+                    <row bottom="none" left="none">
+                    <cell right="minor">1</cell>
+                        <cell>two</cell>
+                        <cell><m>\lfloor\pi\rfloor</m></cell>
+                    </row>
+                    <row valign="bottom">
+                        <cell bottom="minor"><line><m>\text{I}+\text{I}</m></line><line><m>{}+\text{I}+\text{I}</m></line></cell>
+                        <cell><var name="$x" form="none" category="integer"/></cell>
+                        <cell>six</cell>
+                    </row>
+                    <row halign="right">
+                        <cell><m>2^3-1</m></cell>
+                        <cell colspan="2" halign="center">VIII</cell>
+                    </row>
+                </tabular>
+            </statement>
+
+            <solution>
+                <p>The missing number is <var name="$x"/>.</p>
+            </solution>
+
+        </webwork>
+
+    </exercise>
+
+    <exercise>
+        <title>Answer Arrays</title>
+        <webwork>
+          <pg-code>
+            Context("Point");
+            $p = Point(0,0);
+            Context("Vector");
+            $v = Vector(1,2);
+            $c = ColumnVector(3,4);
+            Context("Matrix");
+            $m = Matrix([[1,2],[3,4]]);
+          </pg-code>
+          <statement>
+            <p>
+              These answer blanks are all expecting some sort of answer in an array format.
+            </p>
+            <p>
+              <m><var name="$p"/> = {}</m><var name="$p" form="array"/>
+            </p>
+            <p>
+              <m><var name="$v"/> = {}</m><var name="$v" form="array"/>
+            </p>
+            <p>
+              <m><var name="$c"/> = {}</m><var name="$c" form="array"/>
+            </p>
+            <p>
+              <m><var name="$m"/> = {}</m><var name="$m" form="array"/>
+            </p>
+          </statement>
+        </webwork>
+    </exercise>
+</section>

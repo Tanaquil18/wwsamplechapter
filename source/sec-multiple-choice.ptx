@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-multiple-choice" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Multiple Choice</title>
+
+    <p>While free-response questions are generally preferred, sometimes the nature of a question lends itself to multiple choice.</p>
+
+    <exercise label="multiple-choice">
+        <title>Drop-down/Popup</title>
+
+        <introduction>
+            <p>Note also that the solution to this problem uses an external link.</p>
+        </introduction>
+
+        <webwork>
+
+            <pg-code>
+                $rational = PopUp(
+                    ["?","is","is not",],
+                    "is not",
+                );
+            </pg-code>
+
+            <statement>
+                <p>The number <m>\sqrt{2}</m> <var name="$rational" form="popup"/> rational.</p>
+
+            </statement>
+
+            <solution>
+                <p>If <m>\sqrt{2}</m> were rational, then <m>\sqrt{2}=\frac{p}{q}</m>, with <m>p</m> and <m>q</m> coprime. But then <m>2q^2=p^2</m>. By <url href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic#Canonical_representation_of_a_positive_integer">the Fundamental Theorem of Arithmetic</url>, the power of <m>2</m> dividing the left side is odd, while the power of <m>2</m> dividing the right side is even. This is a contradiction, so <m>\sqrt{2}</m> <var name="$rational"/> rational.</p>
+            </solution>
+
+        </webwork>
+    </exercise>
+
+    <exercise label="choose-one">
+        <title>Choose one</title>
+
+        <webwork>
+
+            <pg-code>
+                $theorem = RadioButtons(
+                  ["The Quadratic Formula","The Fundamental Theorem of Calculus","The Fundamental Theorem of Arithmetic","None of these"],
+                  1, # index of correct answer; could also just be the correct answer
+                );
+            </pg-code>
+
+            <statement>
+                <p>Which of the following suggest that differentiation and integration are inverse processes?</p>
+                <p><var name="$theorem" form="buttons"/></p>
+            </statement>
+
+            <solution>
+                <p>The correct answer is <var name="$theorem"/>.</p>
+            </solution>
+
+        </webwork>
+    </exercise>
+
+    <exercise label="options-subset">
+        <title>Choose a Subset of Options</title>
+        <webwork>
+            <pg-code>
+                $checks = CheckboxList(
+                    [
+                        [
+                            "${BM}e^{x^2} e^{1/x}${EM}",
+                            "${BM}e^{x^2} e^{x^{-1}}${EM}",
+                            "${BM}e^{ (x^3+1) / x}${EM}",
+                            "${BM}\dfrac{ e^{x^2} }{ e^x }${EM}",
+                            "${BM}e^{x^2} + e^{1/x}${EM}"
+                        ],
+                        "None of the above"
+                    ],
+                    [0, 1, 2]
+                );
+            </pg-code>
+            <statement>
+                <p>
+                    Select all expressions that are equivalent to <m>e^{x^2 + 1/x}</m>.
+                    There may be more than one correct answer.
+                </p>
+                <p>
+                    <var name="$checks" form="checkboxes"/>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The correct answer is <var name="$checks"/>.
+                </p>
+            </solution>
+        </webwork>
+    </exercise>
+
+    <exercise label="options-subset-auto-label">
+        <title>Choose a Subset of Options with Automated Labeling</title>
+        <webwork>
+            <pg-code>
+                $checks = CheckboxList(
+                    [
+                        [
+                            "${BM}e^{x^2} e^{1/x}${EM}",
+                            "${BM}e^{x^2} e^{x^{-1}}${EM}",
+                            "${BM}e^{ (x^3+1) / x}${EM}",
+                            "${BM}\dfrac{ e^{x^2} }{ e^x }${EM}",
+                            "${BM}e^{x^2} + e^{1/x}${EM}"
+                        ],
+                        "None of the above"
+                    ],
+                    [0, 1, 2],
+                    labels => "ABC",   # "abc", "123", "roman", "Roman"
+                );
+            </pg-code>
+            <statement>
+                <p>
+                    Select all expressions that are equivalent to <m>e^{x^2 + 1/x}</m>.
+                    There may be more than one correct answer.
+                </p>
+                <p>
+                    <var name="$checks" form="checkboxes"/>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The correct answer is <var name="$checks"/>.
+                </p>
+            </solution>
+        </webwork>
+    </exercise>
+
+    <exercise label="options-subset-explicit-labeling">
+        <title>Choose a Subset of Options with Explicit Labeling</title>
+        <webwork>
+            <pg-code>
+                $checks = CheckboxList(
+                    [
+                        [
+                            {TACO => "${BM}e^{x^2} e^{1/x}${EM}"},
+                            {PIZZA => "${BM}e^{x^2} e^{x^{-1}}${EM}"},
+                            {SUSHI => "${BM}e^{ (x^3+1) / x}${EM}"},
+                            {BURGER => "${BM}\dfrac{ e^{x^2} }{ e^x }${EM}"},
+                            {BURRITO => "${BM}e^{x^2} + e^{1/x}${EM}"}
+                        ],
+                        {HUNGRY => "None of the above"}
+                    ],
+                    [0, 1, 2],
+                    displayLabels => 1
+                );
+            </pg-code>
+            <statement>
+                <p>
+                    Select all expressions that are equivalent to <m>e^{x^2 + 1/x}</m>.
+                    There may be more than one correct answer.
+                </p>
+                <p>
+                    <var name="$checks" form="checkboxes"/>
+                </p>
+            </statement>
+            <solution>
+                <p>
+                    The correct answer is <var name="$checks"/>.
+                </p>
+            </solution>
+        </webwork>
+    </exercise>
+</section>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-technical-examples" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Technical Examples</title>
+
+  <!-- include sections -->
+  <xi:include href="sec-pgml-formatting.ptx" />
+  <xi:include href="sec-subject-area-templates.ptx" />
+  <xi:include href="sec-stress-tests.ptx" />
+  <xi:include href="sec-layout-configuration.ptx" />
+  <xi:include href="sec-deprecations.ptx" />
+  <!-- <xi:include href="sec-ac-in-runestone-tests.ptx" /> -->
+  <!-- <xi:include href="sec-tables.ptx" /> -->
+  <!-- <xi:include href="sec-graphics-in-exercises.ptx" /> -->
+
+</chapter>
