@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage[svgnames]{xcolor}
+\usepackage{pgfplots}
+\pgfplotsset{
+    every axis/.append style={
+        axis lines=middle,
+        xlabel={$x$},
+        ylabel={$y$},
+        grid = both,
+    }
+}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[xmin=-2,xmax=2,xtick={-1,1},minor xtick={-2,-1.75,...,2},ymin=-2,ymax=2,ytick={-1,1},minor ytick={-2,-1.75,...,2},legend style={at={(0.03,0.97)},anchor=north west},domain=-2:2,smooth]
+\addplot+{sin(deg(x))};
+\addlegendentry{\(f(x)\)};
+\addplot+{x};
+\addlegendentry{\(T_1(x)\)};
+\addplot+{x-x^3/6};
+\addlegendentry{\(T_3(x)\)};
+\end{axis}
+\end{tikzpicture}
+
+
+\end{document}

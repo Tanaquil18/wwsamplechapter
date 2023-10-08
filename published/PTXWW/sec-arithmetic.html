@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WWSC Arithmetic</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://runestone.academy/ns/books/published/PTXWW/sec-arithmetic.html">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Integrating WeBWorK into Textbooks">
+<meta property="book:author" content="Robert Beezer">
+<meta property="book:author" content="Alex Jordan">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.31/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="_static/lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.31/pretext_search.js"></script><link href="https://pretextbook.org/css/0.81/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.31</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.31/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.31/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.31/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.81/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/setcolors.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = true;
+eBookConfig.host = '';
+eBookConfig.app = eBookConfig.host + '/runestone';
+eBookConfig.course = '~._ course_name _.~';
+eBookConfig.basecourse = '~._ base_course _.~';
+eBookConfig.isLoggedIn = ~._ is_logged_in _.~;
+eBookConfig.email = '~._ user_email _.~';
+eBookConfig.isInstructor = ~._ is_instructor _.~;
+eBookConfig.logLevel = 10;
+eBookConfig.ajaxURL = eBookConfig.app + "/ajax/";
+eBookConfig.username = '~._ user_id _.~';
+eBookConfig.readings = ~._ readings|safe _.~;
+eBookConfig.activities = ~._ activity_info|safe _.~;
+eBookConfig.downloadsEnabled = ~._ downloads_enabled _.~;
+eBookConfig.allow_pairs = ~._ allow_pairs _.~;
+eBookConfig.enableScratchAC = false;
+eBookConfig.new_server_prefix = "/ns";
+eBookConfig.runestone_version = '7.1.7';
+</script>
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script><!--*** Runestone Services ***-->
+<script type="text/javascript" src="_static/prefix-runtime.d1c90f59ed8885b2.bundle.js"></script><script type="text/javascript" src="_static/prefix-347.8328b60515045466.bundle.js"></script><script type="text/javascript" src="_static/prefix-runestone.4370653ffa4ec93a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.cec40a61180efd41.css">
+</head>
+<body id="PTXWW" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="http://webwork.maa.org/"><img src="external/webwork-logo.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="sample-ww-chapter.html"><span class="title">Integrating WeBWorK into Textbooks:</span> <span class="subtitle">Sample Exercises</span></a></h1>
+<p class="byline">Robert Beezer, Alex Jordan</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar ptx-runestone-container"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ch-instructive-examples.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-instructive-examples.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-the-quadratic-formula.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span><span class="nav-runestone-controls"><button class="runestone-profile dropdown button" title="Profile"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf0d3;</span><span class="name">Profile</span><div class="dropdown-content">
+{% if settings.academy_mode: %}
+<a href="/ns/course/index">Course Home</a><a href="/runestone/assignments/chooseAssignment">Assignments</a><a href="/runestone/assignments/practice">Practice</a><hr>
+<a id="inst_peer_link" href="/runestone/peer/instructor.html">Peer Instruction (Instructor)</a><a href="/runestone/peer/student.html">Peer Instruction (Student)</a><hr>
+<a href="/runestone/default/courses">Change Course</a><hr>
+<a id="ip_dropdown_link" href="/runestone/admin/index">Instructor's Page</a><hr>
+{% endif %}
+<a href="/runestone/dashboard/studentreport">Progress Page</a><hr>
+{% if is_logged_in %}
+<a href="/runestone/default/user/profile">Edit Profile</a><a href="/runestone/default/user/change_password">Change Password</a><a href="/runestone/default/user/logout">Log Out</a>
+{% else %}
+<a href="/runestone/default/user/register">Register</a><a href="/runestone/default/user/login">Login</a>
+{% endif %}
+</div></button></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\definiteintegral}[4]{\int_{#1}^{#2}\,#3\,d#4} \newcommand{\indefiniteintegral}[2]{\int#1\,d#2}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-1.html" class="internal"><span class="title">Preface</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-instructive-examples.html" class="internal"><span class="codenumber">1</span> <span class="title">Instructive Examples</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-arithmetic.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Arithmetic</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-the-quadratic-formula.html" class="internal"><span class="codenumber">1.2</span> <span class="title">The Quadratic Formula</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-open-problem-library.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Open Problem Library</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-antidifferentiation.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Antidifferentiation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-antidifferentiation.html#subsection-1" class="internal"><span class="codenumber">1.4.1</span> <span class="title">A Few More Features</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-antidifferentiation.html#exercises-1" class="internal"><span class="codenumber">1.4.2</span> <span class="title">WeBWorK Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-math-content.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Math Content</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-multiple-choice.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Multiple Choice</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-tables.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Tables</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-graphics-in-exercises.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Graphics in Exercises</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-graphics-in-exercises.html#exercises-2" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-technical-examples.html" class="internal"><span class="codenumber">2</span> <span class="title">Technical Examples</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-pgml-formatting.html" class="internal"><span class="codenumber">2.1</span> <span class="title">PGML Formatting and Verbatim Calisthenics</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-subject-area-templates.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Subject Area Templates</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-stress-tests.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Stress Tests</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-layout-configuration-testing.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Layout Configuration Testing</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-layout-configuration-testing.html#subsection-2" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Inline Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-layout-configuration-testing.html#exercises-3" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Divisional Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-deprecations.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Deprecations</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ac-in-runestone-tests.html" class="internal"><span class="codenumber">2.6</span> <span class="title">AC in Runestone Test Problems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ac-in-runestone-tests.html#exercises-ac-in-runestone-tests" class="internal"><span class="codenumber">2.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-solutions"><div class="toc-title-box"><a href="solutions-1.html" class="internal"><span class="codenumber">A</span> <span class="title">Hints, Answers, and Solutions</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-arithmetic"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.1</span><span class="space"> </span><span class="title">Arithmetic</span>
+</h2>
+<div class="para" id="p-6">Some questions with quantitative answers.</div>
+<article class="exercise exercise-like" id="integer-addition"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-integer-addition"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Adding Single-Digit Integers.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-integer-addition"><article class="exercise exercise-like"><div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="PTXWW_2_integer-addition">
+<div class="introduction" id="introduction-2"><div class="para" id="p-7">A simple, but functional example to begin with. If you are just learning how to add, you can test yourself here.</div></div>
+<div id="PTXWW_2_integer-addition-ww-rs" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="6" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIlBHTUwucGwiLCJBbnN3ZXJGb3JtYXRIZWxwLnBsIiwiUEdjb3Vyc2UucGwiLCk7VEVYVChiZWdpbnByb2JsZW0oKSk7CkNvbnRleHQoJ051bWVyaWMnKTskYSA9IHJhbmRvbSgxLCA5LCAxKTsKJGIgPSByYW5kb20oMSwgOSwgMSk7CiRjID0gQ29tcHV0ZSgkYSArICRiKTsKCkJFR0lOX1BHTUwKQ29tcHV0ZSB0aGUgc3VtIG9mIFtgWyRhXWBdIGFuZCBbYFskYl1cdGV4dHs6fWBdCgpbYFskYV0gKyBbJGJdID1gXSBbX117JGN9ezV9IFtAQW5zd2VyRm9ybWF0SGVscCgnbnVtYmVycycpQF0qCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KW2BbJGFdICsgWyRiXSA9IFskY11cdGV4dHsufWBdCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('PTXWW_2_integer-addition-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-8">Compute the sum of <span class="process-math">\(6\)</span> and <span class="process-math">\(1\text{:}\)</span>
+</div> <div class="para" id="p-9">
+<span class="process-math">\(6 + 1 =\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span>
+</div>
+</div>
+</div>
+<div class="conclusion" id="conclusion-1"><div class="para" id="p-12">That was a simple problem.  Let’s move on.</div></div>
+</div></div></article></div>
+<div class="para" id="p-13">If you are familiar with WeBWorK, then it may be a surprise to you to be interacting with a WeBWorK problem this way, without having logged in to WeBWorK.</div>
+<article class="exercise exercise-like" id="integer-addition-with-seed"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-integer-addition-with-seed"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Declaring a Problem Seed.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-integer-addition-with-seed"><article class="exercise exercise-like"><div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="PTXWW_2_integer-addition-with-seed">
+<div class="introduction" id="introduction-3"><div class="para" id="p-14">You can also declare a <code class="code-inline tex2jax_ignore">seed</code> to specify a version of any problem that has randomization. Here is the same problem (“copied” in the PreTeXt source), but with a <code class="code-inline tex2jax_ignore">seed</code> specified.</div></div>
+<div id="PTXWW_2_integer-addition-with-seed-ww-rs" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="510" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIlBHTUwucGwiLCJBbnN3ZXJGb3JtYXRIZWxwLnBsIiwiUEdjb3Vyc2UucGwiLCk7VEVYVChiZWdpbnByb2JsZW0oKSk7CkNvbnRleHQoJ051bWVyaWMnKTskYSA9IHJhbmRvbSgxLCA5LCAxKTsKJGIgPSByYW5kb20oMSwgOSwgMSk7CiRjID0gQ29tcHV0ZSgkYSArICRiKTsKCkJFR0lOX1BHTUwKQ29tcHV0ZSB0aGUgc3VtIG9mIFtgWyRhXWBdIGFuZCBbYFskYl1cdGV4dHs6fWBdCgpbYFskYV0gKyBbJGJdID1gXSBbX117JGN9ezV9IFtAQW5zd2VyRm9ybWF0SGVscCgnbnVtYmVycycpQF0qCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KW2BbJGFdICsgWyRiXSA9IFskY11cdGV4dHsufWBdCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('PTXWW_2_integer-addition-with-seed-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-15">Compute the sum of <span class="process-math">\(5\)</span> and <span class="process-math">\(8\text{:}\)</span>
+</div> <div class="para" id="p-16">
+<span class="process-math">\(5 + 8 =\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span>
+</div>
+</div>
+</div>
+</div></div></article></div>
+<article class="exercise exercise-like" id="integer-addition-with-control-seed"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-integer-addition-with-control-seed"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">Controlling Randomness.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-integer-addition-with-control-seed"><article class="exercise exercise-like"><div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="PTXWW_2_integer-addition-with-control-seed">
+<div class="introduction" id="introduction-4"><div class="para" id="p-19">You can code your problem with randomization, but then use a specific <code class="code-inline tex2jax_ignore">seed</code> and WeBWorK’s <code class="code-inline tex2jax_ignore">$envir{problemSeed}</code> to override that randomization for the purposes of the version that will appear in HTML and print output.</div></div>
+<div id="PTXWW_2_integer-addition-with-control-seed-ww-rs" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="1" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIlBHTUwucGwiLCJBbnN3ZXJGb3JtYXRIZWxwLnBsIiwiUEdjb3Vyc2UucGwiLCk7VEVYVChiZWdpbnByb2JsZW0oKSk7CkNvbnRleHQoJ051bWVyaWMnKTskYSA9IHJhbmRvbSgxLCA5LCAxKTsKJGIgPSByYW5kb20oMSwgOSwgMSk7CmlmICgkZW52aXJ7cHJvYmxlbVNlZWR9PT0xKXskYT0xOyRiPTJ9OwokYyA9IENvbXB1dGUoJGEgKyAkYik7CgpCRUdJTl9QR01MCkNvbXB1dGUgdGhlIHN1bSBvZiBbYFskYV1gXSBhbmQgW2BbJGJdXHRleHR7On1gXQoKW2BbJGFdICsgWyRiXSA9YF0gW19deyRjfXs1fSBbQEFuc3dlckZvcm1hdEhlbHAoJ251bWJlcnMnKUBdKgoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OCltgWyRhXSArIFskYl0gPSBbJGNdXHRleHR7Ln1gXQoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('PTXWW_2_integer-addition-with-control-seed-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-20">Compute the sum of <span class="process-math">\(1\)</span> and <span class="process-math">\(2\text{:}\)</span>
+</div> <div class="para" id="p-21">
+<span class="process-math">\(1 + 2 =\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span>
+</div>
+</div>
+</div>
+</div></div></article></div>
+<article class="exercise exercise-like" id="special-answer-checking"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-special-answer-checking"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Special Answer Checking.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-special-answer-checking"><article class="exercise exercise-like"><div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="PTXWW_2_special-answer-checking">
+<div class="introduction" id="introduction-5"><div class="para logical" id="p-24">
+<div class="para">One of the strengths of WeBWorK is its ability to give intelligent feedback for incorrect answers.</div>
+<ul class="disc">
+<li id="li-1"><div class="para" id="p-25">There is general feedback for when the student’s answer is in an entirely different ballpark from the correct answer. Try entering something like “<code class="code-inline tex2jax_ignore">y</code>”.</div></li>
+<li id="li-2"><div class="para" id="p-26">There is general feedback for when the student’s answer is not in the right form. Try entering “<code class="code-inline tex2jax_ignore">x^2*x^3</code>”, which, right or wrong, is unsimplified.</div></li>
+<li id="li-3"><div class="para" id="p-27">And problems can be written to detect and respond to common mistakes. Try entering an answer where you multiply the two exponents (instead of adding them, which would be correct.)</div></li>
+</ul>
+</div></div>
+<div id="PTXWW_2_special-answer-checking-ww-rs" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="14" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIlBHTUwucGwiLCJBbnN3ZXJGb3JtYXRIZWxwLnBsIiwiYW5zd2VySGludHMucGwiLCJQQ0NtYWNyb3MucGwiLCJjb250ZXh0Rm9ybS5wbCIsImNvbnRleHRMaW1pdGVkUG9seW5vbWlhbC5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwokYSA9IHJhbmRvbSgxLCA5LCAxKTsKJGIgPSByYW5kb20oMSwgOSwgMSk7CiRjID0gJGEgKyAkYjsKJGV4cHJlc3Npb24gPSBGb3JtdWxhKCJ4XigkYSkqeF4oJGIpIik7CgpDb250ZXh0KCJMaW1pdGVkUG9seW5vbWlhbC1TdHJpY3QiKTsKIyBjdXN0b20gZXJyb3IgbWVzc2FnZQpDb250ZXh0KCktPntlcnJvcn17bXNnfXsiQSB2YXJpYWJsZSBjYW4gYXBwZWFyIG9ubHkgb25jZSBpbiBlYWNoIHRlcm0gb2YgYSBwb2x5bm9taWFsIn0KICAgID0gIllvdXIgYW5zd2VyIG11c3QgYmUgZnVsbHkgc2ltcGxpZmllZCI7CgokYW5zd2VyID0gRm9ybXVsYSgieF4oJGMpIik7CiRwcm9kdWN0ID0gJGEqJGI7CiRldmFsdWF0b3IgPSAkYW5zd2VyLT5jbXAoKS0+d2l0aFBvc3RGaWx0ZXIoQW5zd2VySGludHMoCiAgICBbQ29tcHV0ZSgieF4oJHByb2R1Y3QpIildID0+CiAgICAiV2hlbiBtdWx0aXBseWluZyB0ZXJtcyB3aXRoIHRoZSBzYW1lIGJhc2UsIHlvdSBkbyBub3QgbXVsdGlwbHkgdGhlIGV4cG9uZW50cy4iKSk7CgpCRUdJTl9QR01MClVzZSB0aGUgcHJvcGVydGllcyBvZiBleHBvbmVudHMgdG8gc2ltcGxpZnkgW2BbJGV4cHJlc3Npb25dXHRleHR7Ln1gXQoKW0BLZXlib2FyZEluc3RydWN0aW9ucygnVG8gZW50ZXIgYSBwb3dlciwgdXNlIGEgW3xefF0qLCBhcyBpbiBbfHheMnxdKiBmb3IgW2B4XjJcdGV4dHsufWBdJylAXSoqCgpbYFskZXhwcmVzc2lvbl09YF0gW19deyRldmFsdWF0b3J9ezh9IFtAQW5zd2VyRm9ybWF0SGVscCgnZm9ybXVsYXMnKUBdKgoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OCldlIF9hZGRfIHRoZSBleHBvbmVudHMgYXMgZm9sbG93cywgd2hpbGUgaW5jbHVkaW5nIGEgZ3JhdHVpdG91cyByZWZlcmVuY2UgdG8gdGhlIHF1YWRyYXRpYyBmb3JtdWxhOgoKW2BgYFxiZWdpbnthbGlnbmVkfQpbJGV4cHJlc3Npb25dJj14XntbJGFdK1skYl19Jlx0ZXh0e1RoZW9yZW0gMS4yLjF9XFwKJj14XntbJGNdfQpcZW5ke2FsaWduZWR9CmBgYF0KCgoKCkVORF9QR01MX1NPTFVUSU9OCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('PTXWW_2_special-answer-checking-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-28">Use the properties of exponents to simplify <span class="process-math">\({x^{5}x^{3}}\text{.}\)</span>
+</div> <div class="para" id="p-29">
+<span class="process-math">\({x^{5}x^{3}}=\)</span> <span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span>
+</div>
+</div>
+</div>
+</div></div></article></div>
+<article class="exercise exercise-like" id="using-hints"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-using-hints"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Using Hints.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-using-hints"><article class="exercise exercise-like"><div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="PTXWW_2_using-hints">
+<div class="introduction" id="introduction-6"><div class="para" id="p-33">Hints can be inserted into exercises. Whether a hint is visible in the HTML depends on the value of <code class="code-inline tex2jax_ignore">$showHint</code> in <code class="code-inline tex2jax_ignore">PGcourse.pl</code> in the WeBWorK course that is hosting these exercises. How the hint is displayed in the pdf output is controlled in the usual way that an PTX hint is controlled.</div></div>
+<div id="PTXWW_2_using-hints-ww-rs" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="16" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIlBHTUwucGwiLCJBbnN3ZXJGb3JtYXRIZWxwLnBsIiwiY29udGV4dEZvcm0ucGwiLCJjb250ZXh0TGltaXRlZFJhZGljYWwucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKZG8gewogICAgJGEgPSBsaXN0X3JhbmRvbSgyLDMsNSw2KTsKICAgICRiID0gcmFuZG9tKDEsIDUsIDEpOwogICB9IHVudGlsIChnY2QoJGEsJGIpID09IDEpOwokYyA9ICRhICogJGIqKjI7CkNvbnRleHQoKS0+ZmxhZ3MtPnNldChyZWR1Y2VDb25zdGFudEZ1bmN0aW9ucz0+MCk7CiRleHByZXNzaW9uID0gRm9ybXVsYSgic3FydCgkYykiKTsKCkNvbnRleHQoIkxpbWl0ZWRSYWRpY2FsIik7CgokYW5zd2VyID0gRm9ybXVsYSgiJGIgc3FydCgkYSkiKTsKCkJFR0lOX1BHTUwKU2ltcGxpZnkgdGhlIGV4cHJlc3Npb24gW2BbJGV4cHJlc3Npb25dXHRleHR7Ln1gXQoKW2BbJGV4cHJlc3Npb25dPWBdIFtfXXskYW5zd2VyfXsxMH0KCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9ISU5UCkZhY3RvciB0aGUgbnVtYmVyIGluc2lkZSB0aGUgcmFkaWNhbC4KCgpFTkRfUEdNTF9ISU5UCgpCRUdJTl9QR01MX1NPTFVUSU9OCgoKW2BgYFskZXhwcmVzc2lvbl09XHNxcnR7WyRiXV4yXGNkb3QgWyRhXX09WyRiXVxzcXJ0e1skYV19YGBgXQoKCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('PTXWW_2_using-hints-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-34">Simplify the expression <span class="process-math">\({\sqrt{48}}\text{.}\)</span>
+</div> <div class="para" id="p-35">
+<span class="process-math">\({\sqrt{48}}=\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-1" id="hint-1"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-1"><div class="hint solution-like"><div class="para" id="p-36">Factor the number inside the radical.</div></div></div>
+</div>
+</div>
+</div>
+</div></div></article></div>
+<article class="exercise exercise-like" id="no-random"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-no-random"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.1.6</span><span class="period">.</span><span class="space"> </span><span class="title">No Randomization.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-no-random"><article class="exercise exercise-like"><div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="PTXWW_2_no-random">
+<div class="introduction" id="introduction-7"><div class="para" id="p-39">This problem has no randomization at all, not even if it were exported to be part of a problem set on a WeBWorK server. As such, it really doesn’t need any lines of Perl code in its setup, so you have the option of skipping that part of the authoring process.</div></div>
+<div id="PTXWW_2_no-random-ww-rs" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="18" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIlBHTUwucGwiLCJBbnN3ZXJGb3JtYXRIZWxwLnBsIiwiUEdjb3Vyc2UucGwiLCk7VEVYVChiZWdpbnByb2JsZW0oKSk7CkNvbnRleHQoJ051bWVyaWMnKTsKCkJFR0lOX1BHTUwKW2AxKzI9YF0gW19dezN9ezV9CgoKRU5EX1BHTUwKCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('PTXWW_2_no-random-ww-rs')">Activate</button></div>
+<div class="problem-contents"><div class="para" id="p-40">
+<span class="process-math">\(1+2=\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span>
+</div></div>
+</div>
+<div class="conclusion" id="conclusion-2"><div class="para" id="p-42">For more about problems that do not require any randomization, see the <a class="external" href="https://pretextbook.org/documentation.html" target="_blank">PTX Author Guide</a><a class="xref" id="fn-5" href="" data-knowl="./knowl/fn-5.html" title="Footnote 1.1.1"><sup> 1 </sup></a>.</div></div>
+</div></div></article></div>
+<article class="project project-like" id="copy-webwork-add-numbers"><h3 class="heading">
+<span class="type">Project</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Inside a <code class="code-inline tex2jax_ignore">&lt;project&gt;</code>.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="PTXWW_2_copy-webwork-add-numbers">
+<div class="introduction" id="introduction-8"><div class="para" id="p-43">If you like, you can have a WeBWorK inside a PROJECT-LIKE block. Just like with an <code class="code-inline tex2jax_ignore">&lt;exercise&gt;</code>, it can be preceded with an optional <code class="code-inline tex2jax_ignore">&lt;introduction&gt;</code> and followed by an optional <code class="code-inline tex2jax_ignore">&lt;conclusion&gt;</code>.</div></div>
+<div id="PTXWW_2_copy-webwork-add-numbers-ww-rs" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="511" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIlBHTUwucGwiLCJBbnN3ZXJGb3JtYXRIZWxwLnBsIiwiUEdjb3Vyc2UucGwiLCk7VEVYVChiZWdpbnByb2JsZW0oKSk7CkNvbnRleHQoJ051bWVyaWMnKTskYSA9IHJhbmRvbSgxLCA5LCAxKTsKJGIgPSByYW5kb20oMSwgOSwgMSk7CiRjID0gQ29tcHV0ZSgkYSArICRiKTsKCkJFR0lOX1BHTUwKQ29tcHV0ZSB0aGUgc3VtIG9mIFtgWyRhXWBdIGFuZCBbYFskYl1cdGV4dHs6fWBdCgpbYFskYV0gKyBbJGJdID1gXSBbX117JGN9ezV9IFtAQW5zd2VyRm9ybWF0SGVscCgnbnVtYmVycycpQF0qCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KW2BbJGFdICsgWyRiXSA9IFskY11cdGV4dHsufWBdCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('PTXWW_2_copy-webwork-add-numbers-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-44">Compute the sum of <span class="process-math">\(6\)</span> and <span class="process-math">\(5\text{:}\)</span>
+</div> <div class="para" id="p-45">
+<span class="process-math">\(6 + 5 =\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-7" id="answer-7"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-7"><div class="answer solution-like"><div class="para" id="p-46"><span class="process-math">\(11\)</span></div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like"><div class="para" id="p-47"><span class="process-math">\(6 + 5 = {11}\text{.}\)</span></div></div></div>
+</div>
+</div>
+</div>
+</div></div></article><div id="scprogresscontainer">You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page.<div id="subchapterprogress" aria-label="Page progress"></div>
+</div></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="ch-instructive-examples.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-the-quadratic-formula.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="feedback-link" href="inserturl.here" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>{% if show_ethical_ad %}<div style="width: 100%"><div data-ea-publisher="runestoneacademy" data-ea-type="image" style="display: flex; justify-content: center"></div></div>{% endif %}</body>
+</html>

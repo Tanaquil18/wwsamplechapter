@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-US" >
+<!--  Note that the lang and dir attributes are now set during the
+      processing of the template and not hard-coded above.
+-->
+<head>
+<meta charset='utf-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--
+################################################################################
+# WeBWorK Online Homework Delivery System
+# Copyright &copy; 2000-2022 The WeBWorK Project, https://github.com/openwebwork
+#
+# This program is free software; you can redistribute it and/or modify it under
+# the terms of either: (a) the GNU General Public License as published by the
+# Free Software Foundation; either version 2, or (at your option) any later
+# version, or (b) the "Artistic License" which comes with this package.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+# Artistic License for more details.
+################################################################################
+-->
+
+<link rel="icon" type="x-image/icon" href="/webwork2_files/images/favicon.ico"/>
+
+<!-- CSS Loads -->
+<link rel="stylesheet" href="/webwork2_files/themes/math4/bootstrap.f038b6ee.min.css"/>
+<link rel="stylesheet" href="/webwork2_files/node_modules/@fortawesome/fontawesome-free/css/all.min.css"/>
+<link rel="stylesheet" href="/webwork2_files/themes/math4/math4.fc51f57d.min.css"/>
+
+
+
+<link rel="stylesheet" href="/webwork2_files/themes/math4/math4-overrides.e3b0c442.min.css"/>
+
+
+<!-- JS Loads -->
+<script src="/webwork2_files/js/apps/MathJaxConfig/mathjax-config.d097a5f4.min.js" defer></script>
+<script src="/webwork2_files/node_modules/mathjax/es5/tex-svg.js" id="MathJax-script" defer></script>
+<script src="/webwork2_files/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="/webwork2_files/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+
+<script src="/webwork2_files/themes/math4/math4.04d32dc9.min.js" defer></script>
+
+<script src="/webwork2_files/themes/math4/math4-overrides.e3b0c442.min.js" defer></script>
+
+
+<title>WeBWorK</title>
+
+
+</head>
+
+<body>
+<a href="#page-title" id="stmc-link" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Bootstrap Fluid Layout Scaffolding start -->
+<div id="bs-container" class="container-fluid">
+<!-- Header -->
+<div id="masthead" class="row" role="banner">
+	<div class="col-md-2 webwork_logo">
+		<a href="/webwork2"><img alt="to courses page" src="/webwork2_files/themes/math4/images/webwork_logo.svg" /></a>
+	</div>
+	<div class="col-md-6 institution_logo">
+		<a href="http://www.maa.org"><img alt="to MAA (Mathematical Association of America) main web site" src="/webwork2_files/themes/math4/images/maa_logo.png" /></a>
+	</div>
+	<div id="loginstatus" class="col-md-4">
+		Not logged in.
+	</div>
+</div>
+
+<!-- Breadcrumb -->
+<div id="breadcrumb-row" class="row my-2">
+	<div class="col-12 d-flex align-items-center">
+		
+		<nav id="breadcrumb-navigation" aria-label="breadcrumb navigation" class="w-100">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item active">WeBWorK</li>
+			</ol>
+		</nav>
+	</div>
+</div>
+
+<div id="body-row" class="d-flex">
+
+<!-- Navigation -->
+
+
+<!-- Main Content Area -->
+
+<div id="content" class="flex-grow-1 toggle-width">
+
+	
+
+	<!-- Page Title -->
+	
+	<div class="row"><div class="col-12">
+		<h1 id='page-title' class='page-title'>WeBWorK</h1>
+	</div></div>
+	
+
+	
+	<!-- Message for the user -->
+	<div id="Message" class="Message"></div>
+	
+
+	<!-- Header Text for problem -->
+	
+
+<!-- ==============BEGIN BODY OF PROBLEM=============== -->
+
+	<!-- Indicate presence of perl warnings -->
+	
+
+	
+	
+	<!-- ==== couldn't print body parts so we'll print entire body -->
+	<div class="row">
+		
+			<div class="body col-md-8">
+		
+		<p>Welcome to WeBWorK!</p><h2>Courses</h2><ul class="courses-list"></ul>
+	</div>
+	<!-- inserted body as a whole -->
+	
+	<div id="info-panel-right" class="col-md-4 mb-md-0 mb-2 order-md-last order-first">
+		<div class="info-box">
+			<!--  styles could be different for different pages so they are not set here -->
+			<h2>Site Information</h2><!-- For production servers you should consider replacing this file with one 
+  that is not tracked by git and setting and setting the variable
+  $webworkFiles{site_info} in localOverrides.conf.  This will prevent the file 
+  from being overwritten when you switch branches or by upgrades.  
+ -->
+
+This file is at htdocs/site_info.txt.  Use it to display information for the entire WeBWorK site which will be viewed at login time.
+
+
+
+		</div>
+	</div>
+	
+	</div>
+	
+
+<!-- ==============END BODY OF PROBLEM=============== -->
+	
+
+
+
+<div id="Message_bottom" class="Message">
+	
+</div>
+
+
+</div><!-- #content -->
+
+<!-- Bootstrap Fluid Layout Scaffolding stop -->
+</div><!-- #body-row -->
+</div><!-- #bs-container.container-fluid -->
+
+<!-- Footer -->
+<div id="footer" role="contentinfo">
+	<div id="last-modified">Page generated at 10/08/2023 at 09:16am PDT</div><div id="copyright">WeBWorK &copy; 1996-2022 | theme: math4 | ww_version: 2.17 | pg_version 2.17 | <a href="https://openwebwork.org/">The WeBWorK Project</a></div>
+</div>
+
+</body>
+</html>
