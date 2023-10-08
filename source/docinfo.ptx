@@ -11,7 +11,7 @@
   <!-- picture or logo in the upper left corner. -->
   <brandlogo url="http://webwork.maa.org/" source="webwork-logo.png" />
   <!-- A brief description for the book in a catalog; see the links above. The @shelf is used only when publishing to Runestone; see https://runestone.academy/ns/books/index for a list of valid values. You must copy these @shelf names exactly, including capitalization. -->
-  <blurb shelf="Testing WeBWorK in PreTeXt"> A simple string (no markup is allowed) to describe your book. </blurb>
+  <blurb shelf="Misc"> Testing WeBWorK in PreTeXt and Runestone. </blurb>
 
 
   <!-- The next three lines are likely for mature projects only: -->

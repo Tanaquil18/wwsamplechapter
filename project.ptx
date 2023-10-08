@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- <?xml version="1.0" encoding="utf-8"?> -->
 <!-- Managed automatically by PreTeXt authoring tools -->
 <!-- (delete the above line to manage this file manually) -->
 <!--
@@ -10,6 +10,8 @@
 <project ptx-version="2">
   <targets>
     <target name="web" format="html"/>
+    <!-- <target name="runestone" format="html" publication="publication-runestone.ptx" output-dir="published/PTXWW"/> -->
+    <target name="rs" format="html" platform="runestone" />
     <target name="print" format="pdf"/>
     <target name="print-latex" format="latex"/>
   </targets>

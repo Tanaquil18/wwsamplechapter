@@ -9,7 +9,7 @@
   <xi:include href="sec-stress-tests.ptx" />
   <xi:include href="sec-layout-configuration.ptx" />
   <xi:include href="sec-deprecations.ptx" />
-  <!-- <xi:include href="sec-ac-in-runestone-tests.ptx" /> -->
+  <xi:include href="sec-ac-in-runestone-tests.ptx" />
   <!-- <xi:include href="sec-tables.ptx" /> -->
   <!-- <xi:include href="sec-graphics-in-exercises.ptx" /> -->
 
