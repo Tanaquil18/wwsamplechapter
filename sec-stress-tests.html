@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>WWSC Stress Tests</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Integrating WeBWorK into Textbooks">
+<meta property="book:author" content="Robert Beezer">
+<meta property="book:author" content="Alex Jordan">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.31/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.31/pretext_search.js"></script><link href="https://pretextbook.org/css/0.81/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.31</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.31/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.31/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.31/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="https://pretextbook.org/css/0.81/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.81/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="PTXWW" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href="http://webwork.maa.org/"><img src="external/webwork-logo.png" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="sample-ww-chapter.html"><span class="title">Integrating WeBWorK into Textbooks:</span> <span class="subtitle">Sample Exercises</span></a></h1>
+<p class="byline">Robert Beezer, Alex Jordan</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-subject-area-templates.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-technical-examples.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-layout-configuration-testing.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\definiteintegral}[4]{\int_{#1}^{#2}\,#3\,d#4} \newcommand{\indefiniteintegral}[2]{\int#1\,d#2}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-1.html" class="internal"><span class="title">Preface</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-instructive-examples.html" class="internal"><span class="codenumber">1</span> <span class="title">Instructive Examples</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-arithmetic.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Arithmetic</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-the-quadratic-formula.html" class="internal"><span class="codenumber">1.2</span> <span class="title">The Quadratic Formula</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-open-problem-library.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Open Problem Library</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-antidifferentiation.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Antidifferentiation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-antidifferentiation.html#subsection-1" class="internal"><span class="codenumber">1.4.1</span> <span class="title">A Few More Features</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-antidifferentiation.html#exercises-1" class="internal"><span class="codenumber">1.4.2</span> <span class="title">WeBWorK Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-math-content.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Math Content</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-multiple-choice.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Multiple Choice</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-tables.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Tables</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-graphics-in-exercises.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Graphics in Exercises</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-graphics-in-exercises.html#exercises-2" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-technical-examples.html" class="internal"><span class="codenumber">2</span> <span class="title">Technical Examples</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-pgml-formatting.html" class="internal"><span class="codenumber">2.1</span> <span class="title">PGML Formatting and Verbatim Calisthenics</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-subject-area-templates.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Subject Area Templates</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="sec-stress-tests.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Stress Tests</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-layout-configuration-testing.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Layout Configuration Testing</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-layout-configuration-testing.html#subsection-2" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Inline Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-layout-configuration-testing.html#exercises-3" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Divisional Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-deprecations.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Deprecations</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ac-in-runestone-tests.html" class="internal"><span class="codenumber">2.6</span> <span class="title">AC in Runestone Test Problems</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ac-in-runestone-tests.html#exercises-ac-in-runestone-tests" class="internal"><span class="codenumber">2.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-solutions"><div class="toc-title-box"><a href="solutions-1.html" class="internal"><span class="codenumber">A</span> <span class="title">Hints, Answers, and Solutions</span></a></div></li>
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-stress-tests"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">2.3</span><span class="space"> </span><span class="title">Stress Tests</span>
+</h2>
+<article class="exercise exercise-like" id="exercise-41"><a href="" data-knowl="" class="id-ref exercise-knowl original has-image" data-refid="hk-exercise-41"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">PTX problem source with server-generated images.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-41"><article class="exercise exercise-like"><div id="webwork-79" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="79" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIlBHTUwucGwiLCJzY2FmZm9sZC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2dyYXBobWFjcm9zLnBsIiwiUEdjb3Vyc2UucGwiLCk7JHJlZnJlc2hDYWNoZWRJbWFnZXNJbmVydD0xO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCdOdW1lcmljJyk7Zm9yIG15ICRpKDAuLjcpeyRnclskaV0gPSBpbml0X2dyYXBoKC0xLC0xLDQsNCxheGVzPT5bMCwwXSxncmlkPT5bNSw1XSxzaXplPT5bMTUwLDE1MF0pO307CmFkZF9mdW5jdGlvbnMoJGdyWzBdLCAiMSBmb3IgeCBpbiA8LTEsND4gdXNpbmcgY29sb3I6Ymx1ZSBhbmQgd2VpZ2h0OjIiKTsKYWRkX2Z1bmN0aW9ucygkZ3JbMV0sICJ4IGZvciB4IGluIDwtMSw0PiB1c2luZyBjb2xvcjpibHVlIGFuZCB3ZWlnaHQ6MiIpOwphZGRfZnVuY3Rpb25zKCRnclsyXSwgInheMiBmb3IgeCBpbiA8LTEsND4gdXNpbmcgY29sb3I6Ymx1ZSBhbmQgd2VpZ2h0OjIiKTsKYWRkX2Z1bmN0aW9ucygkZ3JbM10sICJ4XjMgZm9yIHggaW4gPC0xLDQ+IHVzaW5nIGNvbG9yOmJsdWUgYW5kIHdlaWdodDoyIik7CmFkZF9mdW5jdGlvbnMoJGdyWzRdLCAiZV54IGZvciB4IGluIDwtMSw0PiB1c2luZyBjb2xvcjpibHVlIGFuZCB3ZWlnaHQ6MiIpOwphZGRfZnVuY3Rpb25zKCRncls1XSwgInNpbih4KSBmb3IgeCBpbiA8LTEsND4gdXNpbmcgY29sb3I6Ymx1ZSBhbmQgd2VpZ2h0OjIiKTsKYWRkX2Z1bmN0aW9ucygkZ3JbNl0sICJjb3MoeCkgZm9yIHggaW4gPC0xLDQ+IHVzaW5nIGNvbG9yOmJsdWUgYW5kIHdlaWdodDoyIik7CmFkZF9mdW5jdGlvbnMoJGdyWzddLCAiZXhwKC14XjIpIGZvciB4IGluIDwtMSw0PiB1c2luZyBjb2xvcjpibHVlIGFuZCB3ZWlnaHQ6MiIpOwpTY2FmZm9sZDo6QmVnaW4obnVtYmVyZWQgPT4gMSxpc19vcGVuID0+ICJjb3JyZWN0X29yX2ZpcnN0X2luY29ycmVjdCIsY2FuX29wZW4gPT4gYWx3YXlzLCk7U2VjdGlvbjo6QmVnaW4oIiIpOwpCRUdJTl9QR01MCj4+IFtAaW1hZ2UoaW5zZXJ0R3JhcGgoJGdyWzBdKSwgd2lkdGg9PjE1MClAXSogIDw8Cgo+PiBbQGltYWdlKGluc2VydEdyYXBoKCRnclsxXSksIHdpZHRoPT4xNTApQF0qICA8PAoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OCj4+IFtAaW1hZ2UoaW5zZXJ0R3JhcGgoJGdyWzJdKSwgd2lkdGg9PjE1MClAXSogIDw8CgoKRU5EX1BHTUxfU09MVVRJT04KU2VjdGlvbjo6RW5kKCk7U2VjdGlvbjo6QmVnaW4oIiIpOwpCRUdJTl9QR01MCj4+IFtAaW1hZ2UoaW5zZXJ0R3JhcGgoJGdyWzNdKSwgd2lkdGg9PjE1MClAXSogIDw8Cgo+PiBbQGltYWdlKGluc2VydEdyYXBoKCRncls0XSksIHdpZHRoPT4xNTApQF0qICA8PAoKPj4gW0BpbWFnZShpbnNlcnRHcmFwaCgkZ3JbNV0pLCB3aWR0aD0+MTUwKUBdKiAgPDwKCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9ISU5UCj4+IFtAaW1hZ2UoaW5zZXJ0R3JhcGgoJGdyWzZdKSwgd2lkdGg9PjE1MClAXSogIDw8CgoKRU5EX1BHTUxfSElOVAoKQkVHSU5fUEdNTF9TT0xVVElPTgo+PiBbQGltYWdlKGluc2VydEdyYXBoKCRncls3XSksIHdpZHRoPT4xNTApQF0qICA8PAoKCkVORF9QR01MX1NPTFVUSU9OClNlY3Rpb246OkVuZCgpO1NjYWZmb2xkOjpFbmQoKTsKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-79')">Activate</button></div>
+<div class="problem-contents">
+<article class="task exercise-like" id="task-10"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="generated/webwork/images/webwork-79-image-1.png" class="contained"></div> <div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="generated/webwork/images/webwork-79-image-2.png" class="contained"></div></article> <article class="task exercise-like" id="task-11"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="generated/webwork/images/webwork-79-image-4.png" class="contained"></div> <div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="generated/webwork/images/webwork-79-image-5.png" class="contained"></div> <div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="generated/webwork/images/webwork-79-image-6.png" class="contained"></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original has-image" data-refid="hk-hint-2" id="hint-2"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-2"><div class="hint solution-like"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="generated/webwork/images/webwork-79-image-7.png" class="contained"></div></div></div>
+</div></article>
+</div>
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-42"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-42"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Checking Proper Indentation In Lists.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-42"><article class="exercise exercise-like"><div class="introduction" id="introduction-28"><div class="para" id="p-357">One long exercise, where ordered sublists test the specification of their labels.</div></div>
+<div id="webwork-80" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="80" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIlBHTUwucGwiLCJBbnN3ZXJGb3JtYXRIZWxwLnBsIiwiUEdjb3Vyc2UucGwiLCk7VEVYVChiZWdpbnByb2JsZW0oKSk7ClRFWFQoTU9ERVMoUFRYPT4nJyxIVE1MPT4nPGRpdiBzdHlsZT0iZGlzcGxheTpub25lOyI+XChcbmV3Y29tbWFuZHtcYW1wfXsmfVwpPC9kaXY+JykpOwpDb250ZXh0KCdOdW1lcmljJyk7CgpCRUdJTl9QR01MCmEuICBTaW1wbGUgaXRlbQphLiAgU2ltcGxlIGl0ZW0KYS4gIFNpbXBsZSBpdGVtICAgCgoKYS4gIFNpbXBsZSBpdGVtCmEuICBTaW1wbGUgaXRlbQphLiAgU2ltcGxlIGl0ZW0gICAKCgpUZXh0IGJlZm9yZS4KYS4gIFNpbXBsZSBpdGVtCmEuICBTaW1wbGUgaXRlbQphLiAgU2ltcGxlIGl0ZW0gICAKCkFuZCBhZnRlci4KCmEuICBTdHJ1Y3R1cmVkIGl0ZW0KCgphLiAgU3RydWN0dXJlZCBpdGVtCgoKYS4gIFN0cnVjdHVyZWQgaXRlbQoKClRleHQgYmVmb3JlLgphLiAgU3RydWN0dXJlZCBpdGVtCgoKYS4gIFN0cnVjdHVyZWQgaXRlbQoKCmEuICBTdHJ1Y3R1cmVkIGl0ZW0KCkFuZCBhZnRlci4KCmEuICBTdHJ1Y3R1cmVkIGl0ZW0KCgphLiAgWyROQlNQXSoKICAgIEEuICBTdWJsaXN0IEl0ZW0KCgogICAgQS4gIFN1Ymxpc3QgSXRlbQoKCiAgICBBLiAgU3VibGlzdCBJdGVtCgoKCmEuICBTdHJ1Y3R1cmVkIGl0ZW0KCgpUZXh0IGJlZm9yZS4KYS4gIFN0cnVjdHVyZWQgaXRlbQoKCmEuICBUZXh0IGJlZm9yZS4KICAgIGkuICBTdWJsaXN0IEl0ZW0KCgogICAgaS4gIFN1Ymxpc3QgSXRlbQoKCiAgICBpLiAgU3VibGlzdCBJdGVtCgogICAgQW5kIGFmdGVyLgoKCmEuICBTdHJ1Y3R1cmVkIGl0ZW0KCkFuZCBhZnRlci4KCmEuICBTdHJ1Y3R1cmVkIGl0ZW0KCiAgICBTZWNvbmQgcGFyYWdyYXBoCgoKYS4gIFskTkJTUF0qCiAgICBJLiAgU3VibGlzdCBJdGVtCgogICAgICAgIFNlY29uZCBwYXJhZ3JhcGgKCgogICAgSS4gIFN1Ymxpc3QgSXRlbQoKICAgICAgICBTZWNvbmQgcGFyYWdyYXBoCgoKICAgIEkuICBTdWJsaXN0IEl0ZW0KCiAgICAgICAgU2Vjb25kIHBhcmFncmFwaAoKCgphLiAgU3RydWN0dXJlZCBpdGVtCgogICAgU2Vjb25kIHBhcmFncmFwaAoKClRleHQgYmVmb3JlLgphLiAgU3RydWN0dXJlZCBpdGVtCgogICAgU2Vjb25kIHBhcmFncmFwaAoKCmEuICBUZXh0IGJlZm9yZS4KICAgIDEuICBTdWJsaXN0IEl0ZW0KCiAgICAgICAgU2Vjb25kIHBhcmFncmFwaAoKCiAgICAxLiAgU3VibGlzdCBJdGVtCgogICAgICAgIFNlY29uZCBwYXJhZ3JhcGgKCgogICAgMS4gIFN1Ymxpc3QgSXRlbQoKICAgICAgICBTZWNvbmQgcGFyYWdyYXBoCgogICAgQW5kIGFmdGVyLgoKCmEuICBTdHJ1Y3R1cmVkIGl0ZW0KCiAgICBTZWNvbmQgcGFyYWdyYXBoCgpBbmQgYWZ0ZXIuCgphLiAgWyROQlNQXSoKCgogICAgW2BgYDErMT0yYGBgXQoKICAgIFN0cnVjdHVyZWQgaXRlbQoKICAgIFNlY29uZAoKICAgIFtgYGAxKzE9MmBgYF0KCiAgICBwYXJhZ3JhcGgKCgphLiAgWyROQlNQXSoKICAgIGEuICBTdWJsaXN0CgogICAgICAgIFtgYGAxKzE9MmBgYF0KCiAgICAgICAgSXRlbQoKICAgICAgICBTZWNvbmQgcGFyYWdyYXBoCgogICAgICAgIFtgYGAxKzE9MmBgYF0KCgoKCiAgICBhLiAgWyROQlNQXSoKCgogICAgICAgIFtgYGAxKzE9MmBgYF0KCiAgICAgICAgU3VibGlzdCBJdGVtCgogICAgICAgIFNlY29uZAoKICAgICAgICBbYGBgMSsxPTJgYGBdCgogICAgICAgIHBhcmFncmFwaAoKCiAgICBhLiAgU3VibGlzdCBJdGVtCgogICAgICAgIFtgYGAxKzE9MmBgYF0KCgoKICAgICAgICAKCiAgICAgICAgW2BgYDErMT0yYGBgXQoKICAgICAgICBTZWNvbmQgcGFyYWdyYXBoCgoKCmEuICBTdHJ1Y3R1cmVkCgogICAgW2BgYDErMT0yYGBgXQoKICAgIGl0ZW0KCiAgICBTZWNvbmQgcGFyYWdyYXBoCgogICAgW2BgYDErMT0yYGBgXQoKCgoKVGV4dCBiZWZvcmUuCmEuICBTdHJ1Y3R1cmVkCgogICAgW2BgYDErMT0yYGBgXQoKICAgIGl0ZW0KCiAgICBTZWNvbmQgcGFyYWdyYXBoCgogICAgW2BgYDErMT0yYGBgXQoKCgoKYS4gIFskTkJTUF0qCgoKICAgIFtgYGAxKzE9MmBgYF0KCiAgICBUZXh0IGJlZm9yZS4KICAgIEEuICBTdWJsaXN0CgogICAgICAgIFtgYGAxKzE9MmBgYF0KCiAgICAgICAgSXRlbQoKICAgICAgICBTZWNvbmQgcGFyYWdyYXBoCgogICAgICAgIFtgYGAxKzE9MmBgYF0KCgoKCiAgICBBLiAgWyROQlNQXSoKCgogICAgICAgIFtgYGAxKzE9MmBgYF0KCiAgICAgICAgU3VibGlzdCBJdGVtCgogICAgICAgIFNlY29uZAoKICAgICAgICBbYGBgMSsxPTJgYGBdCgogICAgICAgIHBhcmFncmFwaAoKCiAgICBBLiAgU3VibGlzdCBJdGVtCgogICAgICAgIFtgYGAxKzE9MmBgYF0KCgoKICAgICAgICAKCiAgICAgICAgW2BgYDErMT0yYGBgXQoKICAgICAgICBTZWNvbmQgcGFyYWdyYXBoCgogICAgQW5kCgogICAgW2BgYDErMT0yYGBgXQoKICAgIGFmdGVyLgoKCmEuICBTdHJ1Y3R1cmVkIGl0ZW0KCiAgICBbYGBgMSsxPTJgYGBdCgoKCiAgICAKCiAgICBbYGBgMSsxPTJgYGBdCgogICAgU2Vjb25kIHBhcmFncmFwaAoKQW5kIGFmdGVyLgoKVGV4dCBiZWZvcmUuCmEuICBTdHJ1Y3R1cmVkCgogICAgW2BgYFxiZWdpbnthbGlnbmVkfQogICAgMSsxXGFtcD0yXFwKICAgIDJcYW1wPTIKICAgIFxlbmR7YWxpZ25lZH0KICAgIGBgYF0KCiAgICBpdGVtCgogICAgU2Vjb25kIHBhcmFncmFwaAoKICAgIFtgYGBcYmVnaW57YWxpZ25lZH0KICAgIDErMVxhbXA9MlxcCiAgICAyXGFtcD0yCiAgICBcZW5ke2FsaWduZWR9CiAgICBgYGBdCgoKCgphLiAgWyROQlNQXSoKCgogICAgW2BgYFxiZWdpbnthbGlnbmVkfQogICAgMSsxXGFtcD0yXFwKICAgIDJcYW1wPTIKICAgIFxlbmR7YWxpZ25lZH0KICAgIGBgYF0KCiAgICBUZXh0IGJlZm9yZS4KICAgIGkuICBTdWJsaXN0CgogICAgICAgIFtgYGBcYmVnaW57YWxpZ25lZH0KICAgICAgICAxKzFcYW1wPTJcXAogICAgICAgIDJcYW1wPTIKICAgICAgICBcZW5ke2FsaWduZWR9CiAgICAgICAgYGBgXQoKICAgICAgICBJdGVtCgogICAgICAgIFNlY29uZCBwYXJhZ3JhcGgKCiAgICAgICAgW2BgYFxiZWdpbnthbGlnbmVkfQogICAgICAgIDErMVxhbXA9MlxcCiAgICAgICAgMlxhbXA9MgogICAgICAgIFxlbmR7YWxpZ25lZH0KICAgICAgICBgYGBdCgoKCgogICAgaS4gIFskTkJTUF0qCgoKICAgICAgICBbYGBgXGJlZ2lue2FsaWduZWR9CiAgICAgICAgMSsxXGFtcD0yXFwKICAgICAgICAyXGFtcD0yCiAgICAgICAgXGVuZHthbGlnbmVkfQogICAgICAgIGBgYF0KCiAgICAgICAgU3VibGlzdCBJdGVtCgogICAgICAgIFNlY29uZAoKICAgICAgICBbYGBgXGJlZ2lue2FsaWduZWR9CiAgICAgICAgMSsxXGFtcD0yXFwKICAgICAgICAyXGFtcD0yCiAgICAgICAgXGVuZHthbGlnbmVkfQogICAgICAgIGBgYF0KCiAgICAgICAgcGFyYWdyYXBoCgoKICAgIGkuICBTdWJsaXN0IEl0ZW0KCiAgICAgICAgW2BgYFxiZWdpbnthbGlnbmVkfQogICAgICAgIDErMVxhbXA9MlxcCiAgICAgICAgMlxhbXA9MgogICAgICAgIFxlbmR7YWxpZ25lZH0KICAgICAgICBgYGBdCgoKCiAgICAgICAgCgogICAgICAgIFtgYGBcYmVnaW57YWxpZ25lZH0KICAgICAgICAxKzFcYW1wPTJcXAogICAgICAgIDJcYW1wPTIKICAgICAgICBcZW5ke2FsaWduZWR9CiAgICAgICAgYGBgXQoKICAgICAgICBTZWNvbmQgcGFyYWdyYXBoCgogICAgQW5kCgogICAgW2BgYFxiZWdpbnthbGlnbmVkfQogICAgMSsxXGFtcD0yXFwKICAgIDJcYW1wPTIKICAgIFxlbmR7YWxpZ25lZH0KICAgIGBgYF0KCiAgICBhZnRlci4KCgphLiAgU3RydWN0dXJlZCBpdGVtCgogICAgW2BgYFxiZWdpbnthbGlnbmVkfQogICAgMSsxXGFtcD0yXFwKICAgIDJcYW1wPTIKICAgIFxlbmR7YWxpZ25lZH0KICAgIGBgYF0KCgoKICAgIAoKICAgIFtgYGBcYmVnaW57YWxpZ25lZH0KICAgIDErMVxhbXA9MlxcCiAgICAyXGFtcD0yCiAgICBcZW5ke2FsaWduZWR9CiAgICBgYGBdCgogICAgU2Vjb25kIHBhcmFncmFwaAoKQW5kIGFmdGVyLgoKCkVORF9QR01MCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-80')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-358"><ol class="lower-alpha">
+<li id="li-62"><div class="para" id="p-359">Simple item</div></li>
+<li id="li-63"><div class="para" id="p-360">Simple item</div></li>
+<li id="li-64"><div class="para" id="p-361">Simple item</div></li>
+</ol></div> <div class="para logical" id="p-362"><ol class="lower-alpha">
+<li id="li-65"><div class="para" id="p-363">Simple item</div></li>
+<li id="li-66"><div class="para" id="p-364">Simple item</div></li>
+<li id="li-67"><div class="para" id="p-365">Simple item</div></li>
+</ol></div> <div class="para logical" id="p-366">
+<div class="para">Text before.</div>
+<ol class="lower-alpha">
+<li id="li-68"><div class="para" id="p-367">Simple item</div></li>
+<li id="li-69"><div class="para" id="p-368">Simple item</div></li>
+<li id="li-70"><div class="para" id="p-369">Simple item</div></li>
+</ol>
+</div> <div class="para" id="p-370">And after.</div> <div class="para logical" id="p-371"><ol class="lower-alpha">
+<li id="li-71"><div class="para" id="p-372">Structured item</div></li>
+<li id="li-72"><div class="para" id="p-373">Structured item</div></li>
+<li id="li-73"><div class="para" id="p-374">Structured item</div></li>
+</ol></div> <div class="para logical" id="p-375">
+<div class="para">Text before.</div>
+<ol class="lower-alpha">
+<li id="li-74"><div class="para" id="p-376">Structured item</div></li>
+<li id="li-75"><div class="para" id="p-377">Structured item</div></li>
+<li id="li-76"><div class="para" id="p-378">Structured item</div></li>
+</ol>
+</div> <div class="para" id="p-379">And after.</div> <div class="para logical" id="p-380"><ol class="lower-alpha">
+<li id="li-77"><div class="para" id="p-381">Structured item</div></li>
+<li id="li-78"><div class="para logical" id="p-382">
+<div class="para"> </div>
+<ol class="upper-alpha">
+<li id="li-79"><div class="para" id="p-383">Sublist Item</div></li>
+<li id="li-80"><div class="para" id="p-384">Sublist Item</div></li>
+<li id="li-81"><div class="para" id="p-385">Sublist Item</div></li>
+</ol>
+</div></li>
+<li id="li-82"><div class="para" id="p-386">Structured item</div></li>
+</ol></div> <div class="para logical" id="p-387">
+<div class="para">Text before.</div>
+<ol class="lower-alpha">
+<li id="li-83"><div class="para" id="p-388">Structured item</div></li>
+<li id="li-84">
+<div class="para logical" id="p-389">
+<div class="para">Text before.</div>
+<ol class="lower-roman">
+<li id="li-85"><div class="para" id="p-390">Sublist Item</div></li>
+<li id="li-86"><div class="para" id="p-391">Sublist Item</div></li>
+<li id="li-87"><div class="para" id="p-392">Sublist Item</div></li>
+</ol>
+</div>
+<div class="para" id="p-393">And after.</div>
+</li>
+<li id="li-88"><div class="para" id="p-394">Structured item</div></li>
+</ol>
+</div> <div class="para" id="p-395">And after.</div> <div class="para logical" id="p-396"><ol class="lower-alpha">
+<li id="li-89">
+<div class="para" id="p-397">Structured item</div>
+<div class="para" id="p-398">Second paragraph</div>
+</li>
+<li id="li-90"><div class="para logical" id="p-399">
+<div class="para"> </div>
+<ol class="upper-roman">
+<li id="li-91">
+<div class="para" id="p-400">Sublist Item</div>
+<div class="para" id="p-401">Second paragraph</div>
+</li>
+<li id="li-92">
+<div class="para" id="p-402">Sublist Item</div>
+<div class="para" id="p-403">Second paragraph</div>
+</li>
+<li id="li-93">
+<div class="para" id="p-404">Sublist Item</div>
+<div class="para" id="p-405">Second paragraph</div>
+</li>
+</ol>
+</div></li>
+<li id="li-94">
+<div class="para" id="p-406">Structured item</div>
+<div class="para" id="p-407">Second paragraph</div>
+</li>
+</ol></div> <div class="para logical" id="p-408">
+<div class="para">Text before.</div>
+<ol class="lower-alpha">
+<li id="li-95">
+<div class="para" id="p-409">Structured item</div>
+<div class="para" id="p-410">Second paragraph</div>
+</li>
+<li id="li-96">
+<div class="para logical" id="p-411">
+<div class="para">Text before.</div>
+<ol class="decimal">
+<li id="li-97">
+<div class="para" id="p-412">Sublist Item</div>
+<div class="para" id="p-413">Second paragraph</div>
+</li>
+<li id="li-98">
+<div class="para" id="p-414">Sublist Item</div>
+<div class="para" id="p-415">Second paragraph</div>
+</li>
+<li id="li-99">
+<div class="para" id="p-416">Sublist Item</div>
+<div class="para" id="p-417">Second paragraph</div>
+</li>
+</ol>
+</div>
+<div class="para" id="p-418">And after.</div>
+</li>
+<li id="li-100">
+<div class="para" id="p-419">Structured item</div>
+<div class="para" id="p-420">Second paragraph</div>
+</li>
+</ol>
+</div> <div class="para" id="p-421">And after.</div> <div class="para logical" id="p-422"><ol class="lower-alpha">
+<li id="li-101">
+<div class="para" id="p-423"> </div>
+<div class="para logical" id="p-424"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+<div class="para" id="p-425">Structured item</div>
+<div class="para" id="p-426">Second</div>
+<div class="para logical" id="p-427"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+<div class="para" id="p-428">paragraph</div>
+</li>
+<li id="li-102"><div class="para logical" id="p-429">
+<div class="para"> </div>
+<ol class="lower-alpha">
+<li id="li-103">
+<div class="para" id="p-430">Sublist</div>
+<div class="para logical" id="p-431"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+<div class="para" id="p-432">Item</div>
+<div class="para" id="p-433">Second paragraph</div>
+<div class="para logical" id="p-434"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+</li>
+<li id="li-104">
+<div class="para" id="p-435"> </div>
+<div class="para logical" id="p-436"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+<div class="para" id="p-437">Sublist Item</div>
+<div class="para" id="p-438">Second</div>
+<div class="para logical" id="p-439"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+<div class="para" id="p-440">paragraph</div>
+</li>
+<li id="li-105">
+<div class="para" id="p-441">Sublist Item</div>
+<div class="para logical" id="p-442"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+<div class="para logical" id="p-443"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+<div class="para" id="p-444">Second paragraph</div>
+</li>
+</ol>
+</div></li>
+<li id="li-106">
+<div class="para" id="p-445">Structured</div>
+<div class="para logical" id="p-446"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+<div class="para" id="p-447">item</div>
+<div class="para" id="p-448">Second paragraph</div>
+<div class="para logical" id="p-449"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+</li>
+</ol></div> <div class="para logical" id="p-450">
+<div class="para">Text before.</div>
+<ol class="lower-alpha">
+<li id="li-107">
+<div class="para" id="p-451">Structured</div>
+<div class="para logical" id="p-452"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+<div class="para" id="p-453">item</div>
+<div class="para" id="p-454">Second paragraph</div>
+<div class="para logical" id="p-455"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+</li>
+<li id="li-108">
+<div class="para" id="p-456"> </div>
+<div class="para logical" id="p-457"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+<div class="para logical" id="p-458">
+<div class="para">Text before.</div>
+<ol class="upper-alpha">
+<li id="li-109">
+<div class="para" id="p-459">Sublist</div>
+<div class="para logical" id="p-460"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+<div class="para" id="p-461">Item</div>
+<div class="para" id="p-462">Second paragraph</div>
+<div class="para logical" id="p-463"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+</li>
+<li id="li-110">
+<div class="para" id="p-464"> </div>
+<div class="para logical" id="p-465"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+<div class="para" id="p-466">Sublist Item</div>
+<div class="para" id="p-467">Second</div>
+<div class="para logical" id="p-468"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+<div class="para" id="p-469">paragraph</div>
+</li>
+<li id="li-111">
+<div class="para" id="p-470">Sublist Item</div>
+<div class="para logical" id="p-471"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+<div class="para logical" id="p-472"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+<div class="para" id="p-473">Second paragraph</div>
+</li>
+</ol>
+</div>
+<div class="para" id="p-474">And</div>
+<div class="para logical" id="p-475"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+<div class="para" id="p-476">after.</div>
+</li>
+<li id="li-112">
+<div class="para" id="p-477">Structured item</div>
+<div class="para logical" id="p-478"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+<div class="para logical" id="p-479"><div class="displaymath process-math">
+\begin{equation*}
+1+1=2
+\end{equation*}
+</div></div>
+<div class="para" id="p-480">Second paragraph</div>
+</li>
+</ol>
+</div> <div class="para" id="p-481">And after.</div> <div class="para logical" id="p-482">
+<div class="para">Text before.</div>
+<ol class="lower-alpha">
+<li id="li-113">
+<div class="para" id="p-483">Structured</div>
+<div class="para logical" id="p-484"><div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}
+1+1\amp=2\\
+2\amp=2
+\end{aligned}
+\end{equation*}
+</div></div>
+<div class="para" id="p-485">item</div>
+<div class="para" id="p-486">Second paragraph</div>
+<div class="para logical" id="p-487"><div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}
+1+1\amp=2\\
+2\amp=2
+\end{aligned}
+\end{equation*}
+</div></div>
+</li>
+<li id="li-114">
+<div class="para" id="p-488"> </div>
+<div class="para logical" id="p-489"><div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}
+1+1\amp=2\\
+2\amp=2
+\end{aligned}
+\end{equation*}
+</div></div>
+<div class="para logical" id="p-490">
+<div class="para">Text before.</div>
+<ol class="lower-roman">
+<li id="li-115">
+<div class="para" id="p-491">Sublist</div>
+<div class="para logical" id="p-492"><div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}
+1+1\amp=2\\
+2\amp=2
+\end{aligned}
+\end{equation*}
+</div></div>
+<div class="para" id="p-493">Item</div>
+<div class="para" id="p-494">Second paragraph</div>
+<div class="para logical" id="p-495"><div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}
+1+1\amp=2\\
+2\amp=2
+\end{aligned}
+\end{equation*}
+</div></div>
+</li>
+<li id="li-116">
+<div class="para" id="p-496"> </div>
+<div class="para logical" id="p-497"><div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}
+1+1\amp=2\\
+2\amp=2
+\end{aligned}
+\end{equation*}
+</div></div>
+<div class="para" id="p-498">Sublist Item</div>
+<div class="para" id="p-499">Second</div>
+<div class="para logical" id="p-500"><div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}
+1+1\amp=2\\
+2\amp=2
+\end{aligned}
+\end{equation*}
+</div></div>
+<div class="para" id="p-501">paragraph</div>
+</li>
+<li id="li-117">
+<div class="para" id="p-502">Sublist Item</div>
+<div class="para logical" id="p-503"><div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}
+1+1\amp=2\\
+2\amp=2
+\end{aligned}
+\end{equation*}
+</div></div>
+<div class="para logical" id="p-504"><div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}
+1+1\amp=2\\
+2\amp=2
+\end{aligned}
+\end{equation*}
+</div></div>
+<div class="para" id="p-505">Second paragraph</div>
+</li>
+</ol>
+</div>
+<div class="para" id="p-506">And</div>
+<div class="para logical" id="p-507"><div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}
+1+1\amp=2\\
+2\amp=2
+\end{aligned}
+\end{equation*}
+</div></div>
+<div class="para" id="p-508">after.</div>
+</li>
+<li id="li-118">
+<div class="para" id="p-509">Structured item</div>
+<div class="para logical" id="p-510"><div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}
+1+1\amp=2\\
+2\amp=2
+\end{aligned}
+\end{equation*}
+</div></div>
+<div class="para logical" id="p-511"><div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}
+1+1\amp=2\\
+2\amp=2
+\end{aligned}
+\end{equation*}
+</div></div>
+<div class="para" id="p-512">Second paragraph</div>
+</li>
+</ol>
+</div> <div class="para" id="p-513">And after.</div>
+</div>
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-43"><a href="" data-knowl="" class="id-ref exercise-knowl original has-image has-tabular" data-refid="hk-exercise-43"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">Checking Proper Indentation In Lists with Images and Tables.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-43"><article class="exercise exercise-like"><div id="webwork-81" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="81" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIlBHTUwucGwiLCJuaWNlVGFibGVzLnBsIiwiQW5zd2VyRm9ybWF0SGVscC5wbCIsIlBHZ3JhcGhtYWNyb3MucGwiLCJQR2NvdXJzZS5wbCIsKTskcmVmcmVzaENhY2hlZEltYWdlc0luZXJ0PTE7VEVYVChiZWdpbnByb2JsZW0oKSk7CkNvbnRleHQoJ051bWVyaWMnKTskZz1pbml0X2dyYXBoKC0xLC0xLDEsMSxheGVzPT5bMCwwXSk7CgpCRUdJTl9QR01MCmEuICBTdHJ1Y3R1cmVkIGl0ZW0KCiAgICBbQGltYWdlKGluc2VydEdyYXBoKCRnKSwgd2lkdGg9PjEwMilAXSogCgoKYS4gIFtAaW1hZ2UoaW5zZXJ0R3JhcGgoJGcpLCB3aWR0aD0+MTAyKUBdKiAKClN0cnVjdHVyZWQgaXRlbQoKCmEuICBTdHJ1Y3R1cmVkIGl0ZW0KCiAgICBbQGltYWdlKGluc2VydEdyYXBoKCRnKSwgd2lkdGg9PjEwMilAXSogCgoKYS4gIFN0cnVjdHVyZWQgaXRlbQoKCmEuICBTdHJ1Y3R1cmVkIGl0ZW0KCiAgICBbQERhdGFUYWJsZShbW1BHTUwoJ2EnKSxQR01MKCdiJyksXSxbUEdNTCgnYycpLFBHTUwoJ2QnKSxdLF0sYWxpZ24sJyp7Mn17bH0nLHZhbGlnbiwnbWlkZGxlJywpO0BdKgoKCmEuICBbQERhdGFUYWJsZShbW1tQR01MKCcxJyksaGFsaWduLCdyJyxdLFBHTUwoJ3R3bycpLFBHTUwoJ1tgXGxmbG9vclxwaVxyZmxvb3JgXScpLF0sW1tQR01MKCdbYFx0ZXh0e0l9K1x0ZXh0e0l9YF0gIApbYHt9K1x0ZXh0e0l9K1x0ZXh0e0l9YF0gIAonKSxib3R0b20sJzMnLG1pZHJ1bGUsJzEnLHZhbGlnbiwnYm90dG9tJyxdLFBHTUwoJ1tgNWBdJyksUEdNTCgnc2l4JyksXSxbW1BHTUwoJ1tgMl4zLTFgXScpLGJvdHRvbSwnMycsbWlkcnVsZSwnMScsXSxbUEdNTCgnVklJSScpLGNvbHNwYW4sJzInLF0sXSxdLGFsaWduLCche1x2cnVsZSB3aWR0aCAwLjExZW19cnxjIXtcdnJ1bGUgd2lkdGggMC4wN2VtfWx8Jyx2YWxpZ24sJ21pZGRsZScsdG9wLCczJywpO0BdKgoKU3RydWN0dXJlZCBpdGVtCgoKYS4gIFN0cnVjdHVyZWQgaXRlbQoKICAgIFtARGF0YVRhYmxlKFtbUEdNTCgnYScpLFBHTUwoJ2InKSxdLFtQR01MKCdjJyksUEdNTCgnZCcpLF0sXSxhbGlnbiwnKnsyfXtsfScsdmFsaWduLCdtaWRkbGUnLCk7QF0qCgogICAgU2Vjb25kIHBhcmFncmFwaAoKCmEuICBTdHJ1Y3R1cmVkIGl0ZW0KCgoKRU5EX1BHTUwKCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-81')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-514"><ol class="lower-alpha">
+<li id="li-119">
+<div class="para" id="p-515">Structured item</div>
+<div class="image-box" style="width: 17%; margin-left: 41.5%; margin-right: 41.5%;"><img src="generated/webwork/images/webwork-81-image-1.png" class="contained"></div>
+</li>
+<li id="li-120"><div class="image-box" style="width: 17%; margin-left: 41.5%; margin-right: 41.5%;"><img src="generated/webwork/images/webwork-81-image-1.png" class="contained"></div></li>
+</ol></div> <div class="para" id="p-516">Structured item</div> <div class="para logical" id="p-517"><ol class="lower-alpha">
+<li id="li-121">
+<div class="para" id="p-518">Structured item</div>
+<div class="image-box" style="width: 17%; margin-left: 41.5%; margin-right: 41.5%;"><img src="generated/webwork/images/webwork-81-image-1.png" class="contained"></div>
+</li>
+<li id="li-122"><div class="para" id="p-519">Structured item</div></li>
+<li id="li-123">
+<div class="para" id="p-520">Structured item</div>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">a</td>
+<td class="l m b0 r0 l0 t0 lines">b</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">c</td>
+<td class="l m b0 r0 l0 t0 lines">d</td>
+</tr>
+</table></div>
+</li>
+<li id="li-124"><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="r m b0 r1 l0 t0 lines">1</td>
+<td class="c m b0 r3 l0 t0 lines">two</td>
+<td class="l m b0 r1 l0 t0 lines"><span class="process-math">\(\lfloor\pi\rfloor\)</span></td>
+</tr>
+<tr>
+<td class="r b b3 r1 l3 t0 lines">
+<span class="process-math">\(\text{I}+\text{I}\)</span> <span class="process-math">\({}+\text{I}+\text{I}\)</span>
+</td>
+<td class="c b b1 r3 l0 t0 lines"><span class="process-math">\(5\)</span></td>
+<td class="l b b1 r1 l0 t0 lines">six</td>
+</tr>
+<tr>
+<td class="r m b3 r1 l3 t0 lines"><span class="process-math">\(2^3-1\)</span></td>
+<td class="c m b1 r1 l0 t0 lines" colspan="2">VIII</td>
+</tr>
+</table></div></li>
+</ol></div> <div class="para" id="p-521">Structured item</div> <div class="para logical" id="p-522"><ol class="lower-alpha">
+<li id="li-125">
+<div class="para" id="p-523">Structured item</div>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">a</td>
+<td class="l m b0 r0 l0 t0 lines">b</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">c</td>
+<td class="l m b0 r0 l0 t0 lines">d</td>
+</tr>
+</table></div>
+<div class="para" id="p-524">Second paragraph</div>
+</li>
+<li id="li-126"><div class="para" id="p-525">Structured item</div></li>
+</ol></div>
+</div>
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-44"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-44"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Deep-nested lists.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-44"><article class="exercise exercise-like"><div id="webwork-82" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="82" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIlBHTUwucGwiLCJBbnN3ZXJGb3JtYXRIZWxwLnBsIiwiUEdjb3Vyc2UucGwiLCk7VEVYVChiZWdpbnByb2JsZW0oKSk7CkNvbnRleHQoJ051bWVyaWMnKTsKCkJFR0lOX1BHTUwKT3JkZXJlZCBsaXN0LgoKYS4gIExldmVsIDEsIGZpcnN0LgoKCmEuICBMZXZlbCAxLCBzZWNvbmQuCiAgICBpLiAgTGV2ZWwgMiwgZmlyc3QuCgoKICAgIGkuICBMZXZlbCAyLCBzZWNvbmQuCiAgICAgICAgQS4gIExldmVsIDMsIGZpcnN0LgoKCiAgICAgICAgQS4gIExldmVsIDMsIHNlY29uZC4KICAgICAgICAgICAgMS4gIExldmVsIDQsIGZpcnN0LgoKCiAgICAgICAgICAgIDEuICBMZXZlbCA0LCBzZWNvbmQuCgoKICAgICAgICAgICAgMS4gIExldmVsIDQsIHRoaXJkLgoKCgogICAgICAgIEEuICBMZXZlbCAzLCB0aGlyZC4KCgoKICAgIGkuICBMZXZlbCAyLCB0aGlyZC4KCgoKYS4gIExldmVsIDEsIHRoaXJkLgoKClVub3JkZXJlZCBsaXN0LgoKKiBMZXZlbCAxLCBmaXJzdC4KCgoqIExldmVsIDEsIHNlY29uZC4KICAgIG8gTGV2ZWwgMiwgZmlyc3QuCgoKICAgIG8gTGV2ZWwgMiwgc2Vjb25kLgogICAgICAgICsgTGV2ZWwgMywgZmlyc3QuCgoKICAgICAgICArIExldmVsIDMsIHNlY29uZC4KICAgICAgICAgICAgKiBMZXZlbCA0LCBmaXJzdC4KCgogICAgICAgICAgICAqIExldmVsIDQsIHNlY29uZC4KCgogICAgICAgICAgICAqIExldmVsIDQsIHRoaXJkLgoKCgogICAgICAgICsgTGV2ZWwgMywgdGhpcmQuCgoKCiAgICBvIExldmVsIDIsIHRoaXJkLgoKCgoqIExldmVsIDEsIHRoaXJkLiAgIAoKCgpFTkRfUEdNTAoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-82')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-526">Ordered list.</div> <div class="para logical" id="p-527"><ol class="lower-alpha">
+<li id="li-127"><div class="para" id="p-528">Level 1, first.</div></li>
+<li id="li-128"><div class="para logical" id="p-529">
+<div class="para">Level 1, second.</div>
+<ol class="lower-roman">
+<li id="li-129"><div class="para" id="p-530">Level 2, first.</div></li>
+<li id="li-130"><div class="para logical" id="p-531">
+<div class="para">Level 2, second.</div>
+<ol class="upper-alpha">
+<li id="li-131"><div class="para" id="p-532">Level 3, first.</div></li>
+<li id="li-132"><div class="para logical" id="p-533">
+<div class="para">Level 3, second.</div>
+<ol class="decimal">
+<li id="li-133"><div class="para" id="p-534">Level 4, first.</div></li>
+<li id="li-134"><div class="para" id="p-535">Level 4, second.</div></li>
+<li id="li-135"><div class="para" id="p-536">Level 4, third.</div></li>
+</ol>
+</div></li>
+<li id="li-136"><div class="para" id="p-537">Level 3, third.</div></li>
+</ol>
+</div></li>
+<li id="li-137"><div class="para" id="p-538">Level 2, third.</div></li>
+</ol>
+</div></li>
+<li id="li-138"><div class="para" id="p-539">Level 1, third.</div></li>
+</ol></div> <div class="para" id="p-540">Unordered list.</div> <div class="para logical" id="p-541"><ul class="disc">
+<li id="li-139"><div class="para" id="p-542">Level 1, first.</div></li>
+<li id="li-140"><div class="para logical" id="p-543">
+<div class="para">Level 1, second.</div>
+<ul class="circle">
+<li id="li-141"><div class="para" id="p-544">Level 2, first.</div></li>
+<li id="li-142"><div class="para logical" id="p-545">
+<div class="para">Level 2, second.</div>
+<ul class="square">
+<li id="li-143"><div class="para" id="p-546">Level 3, first.</div></li>
+<li id="li-144"><div class="para logical" id="p-547">
+<div class="para">Level 3, second.</div>
+<ul class="disc">
+<li id="li-145"><div class="para" id="p-548">Level 4, first.</div></li>
+<li id="li-146"><div class="para" id="p-549">Level 4, second.</div></li>
+<li id="li-147"><div class="para" id="p-550">Level 4, third.</div></li>
+</ul>
+</div></li>
+<li id="li-148"><div class="para" id="p-551">Level 3, third.</div></li>
+</ul>
+</div></li>
+<li id="li-149"><div class="para" id="p-552">Level 2, third.</div></li>
+</ul>
+</div></li>
+<li id="li-150"><div class="para" id="p-553">Level 1, third.</div></li>
+</ul></div>
+</div>
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-45"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-exercise-45"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.3.5</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-45"><article class="exercise exercise-like"><div class="introduction" id="introduction-29"><div class="para" id="p-554">This exercise has no content in its statement. It should throw a PTX warning during the representations build.</div></div>
+<div id="webwork-83" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="83" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIlBHTUwucGwiLCJBbnN3ZXJGb3JtYXRIZWxwLnBsIiwiUEdjb3Vyc2UucGwiLCk7VEVYVChiZWdpbnByb2JsZW0oKSk7CkNvbnRleHQoJ051bWVyaWMnKTsKCkJFR0lOX1BHTUwKCkVORF9QR01MCgpFTkRET0NVTUVOVCgpOw==" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-83')">Activate</button></div>
+<div class="problem-contents"></div>
+</div></article></div>
+<article class="exercise exercise-like" id="exercise-46"><a href="" data-knowl="" class="id-ref exercise-knowl original has-tabular" data-refid="hk-exercise-46"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">2.3.6</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-exercise-46"><article class="exercise exercise-like"><div class="introduction" id="introduction-30"><div class="para" id="p-555">This exercise has a single quote in it. A single quote is the first option for a delimiter for perl’s q function which is used by extract-pg.xsl in table cells. So if working, it should move on to the next delimiter option.</div></div>
+<div id="webwork-84" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="84" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIlBHTUwucGwiLCJuaWNlVGFibGVzLnBsIiwiQW5zd2VyRm9ybWF0SGVscC5wbCIsIlBHY291cnNlLnBsIiwpO1RFWFQoYmVnaW5wcm9ibGVtKCkpOwpDb250ZXh0KCdOdW1lcmljJyk7CgpCRUdJTl9QR01MCj4+IFtARGF0YVRhYmxlKFtbUEdNTChxIldoYXQncyB1cCwgRG9jPyIpLF0sXSxhbGlnbiwnKnsxfXtsfScsdmFsaWduLCdtaWRkbGUnLCk7QF0qIDw8CgoKRU5EX1BHTUwKCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-84')">Activate</button></div>
+<div class="problem-contents"><div class="tabular-box natural-width"><table class="tabular"><tr><td class="l m b0 r0 l0 t0 lines">What’s up, Doc?</td></tr></table></div></div>
+</div></article></div></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-subject-area-templates.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-layout-configuration-testing.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="feedback-link" href="inserturl.here" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
